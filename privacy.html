@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferry · Privacy Policy</title>
+  <meta name="description" content="Privacy policy for Ferry, the Chrome extension that moves your Claude projects, chats and memory to another account.">
+  <link rel="icon" href="icon.png">
+  <style>
+    @font-face { font-family: 'Atkinson'; src: url('fonts/atkinson-400.woff2') format('woff2'); font-weight: 400; }
+    @font-face { font-family: 'Atkinson'; src: url('fonts/atkinson-700.woff2') format('woff2'); font-weight: 700; }
+    :root { --fondo: #F6F6F2; --tinta: #1D262B; --suave: #5B6265; --linea: #E0E0D8; --amarillo: #F6C90E; --resalte: #FFF4C2; color-scheme: light; }
+    @media (prefers-color-scheme: dark) {
+      :root { --fondo: #15191B; --tinta: #ECEDE8; --suave: #A0A6A8; --linea: #30383C; --resalte: #3A3416; color-scheme: dark; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--fondo); color: var(--tinta); font: 17px/1.6 'Atkinson', system-ui, sans-serif; }
+    main { max-width: 42rem; margin: 0 auto; padding: 48px 20px 80px; }
+    header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    header img { width: 40px; height: 40px; border-radius: 9px; }
+    header b { font-size: 20px; }
+    nav { margin: 8px 0 40px; font-size: 15px; }
+    nav a { color: var(--tinta); }
+    h1 { font-size: 34px; line-height: 1.15; margin: 0 0 6px; }
+    .fecha { color: var(--suave); margin: 0 0 28px; }
+    .resumen { background: var(--resalte); border-radius: 12px; padding: 18px 20px; margin: 0 0 36px; }
+    .resumen p { margin: 0; }
+    h2 { font-size: 21px; margin: 40px 0 8px; }
+    p, li { margin: 0 0 12px; }
+    ul { padding-left: 22px; }
+    table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 8px 0 16px; }
+    th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--linea); }
+    th { font-weight: 700; }
+    code { font-size: .9em; }
+    a { color: inherit; text-underline-offset: 3px; }
+    .idioma { border-top: 2px solid var(--amarillo); margin-top: 72px; padding-top: 8px; }
+  </style>
+</head>
+<body>
+<main>
+  <header><img src="icon.png" alt=""><b>Ferry</b></header>
+  <nav><a href="#es" lang="es">Leer en español</a></nav>
+
+  <h1>Privacy Policy</h1>
+  <p class="fecha">Last updated: 14 November 2026</p>
+
+  <div class="resumen">
+    <p><b>In short:</b> Ferry works entirely inside your browser. It has no servers, it does not collect, sell or share your data, and nothing you move with it ever reaches the developer or any third party.</p>
+  </div>
+
+  <h2>What Ferry is</h2>
+  <p>Ferry is a Chrome extension that helps you move your own Claude projects, chats and memory from one claude.ai account to another. Ferry is an independent tool. It is not made, endorsed or supported by Anthropic.</p>
+
+  <h2>What data Ferry handles, and why</h2>
+  <p>Ferry only touches data when you ask it to, and only to do what you asked. All of it stays between your browser, your claude.ai account and the files you save on your own device.</p>
+  <table>
+    <tr><th>Data</th><th>When</th><th>What Ferry does with it</th></tr>
+    <tr><td>Your claude.ai account details (email address, organization names)</td><td>When you open Ferry on claude.ai</td><td>Shows you which account you are in. It is not stored.</td></tr>
+    <tr><td>Your projects: names, descriptions, instructions and knowledge files</td><td>When you list or save a project</td><td>Lists them for you and, if you choose Save, writes them to a ZIP file on your device.</td></tr>
+    <tr><td>Claude's memory about you and your projects</td><td>When you save a project</td><td>Writes it to the ZIP file. When you bring a project to another account, only the memory you tick is uploaded there.</td></tr>
+    <tr><td>Your chats (personal communications)</td><td>When you list, save or bring a chat</td><td>Lists them, writes the ones you choose to files on your device and, if you ask, recreates them in the other account.</td></tr>
+    <tr><td>Files you open in Ferry (.zip or .md)</td><td>When you bring something to an account</td><td>Reads them in your browser and creates the project or chat in the claude.ai account you are using.</td></tr>
+  </table>
+
+  <h2>What Ferry does not do</h2>
+  <ul>
+    <li>It does not send any of your data to the developer or to any third party. Ferry has no servers.</li>
+    <li>It does not read, store or send your passwords or cookies. Requests are made from the claude.ai page itself, using the session you already have open.</li>
+    <li>It does not use analytics, tracking, advertising or remote code.</li>
+    <li>It does not sell your data or use it for anything other than the move you asked for.</li>
+    <li>It does not read the content of any website other than claude.ai. It only checks the address of the tab you are looking at, to know whether it is claude.ai.</li>
+  </ul>
+
+  <h2>Where your data is kept</h2>
+  <ul>
+    <li><b>On your device:</b> the ZIP and .md files you save go to your Downloads folder. You control them, and you can delete them whenever you like.</li>
+    <li><b>In your claude.ai account:</b> what you bring to an account (projects, files, memory and chats) is created there, under your control, as with anything else you add to claude.ai.</li>
+    <li><b>In the browser:</b> Ferry keeps the progress of the current task, which is deleted when you close the browser, and your theme choice (light, dark or automatic).</li>
+  </ul>
+
+  <h2>Permissions Ferry asks for</h2>
+  <ul>
+    <li><b>Access to claude.ai:</b> to read and create your projects and chats when you ask it to.</li>
+    <li><b>Scripting:</b> to run those requests inside the claude.ai tab, with your existing session, and to start a new chat when you bring one.</li>
+    <li><b>Tabs:</b> to know whether the tab you are looking at is claude.ai, and to open the project or chat you just brought.</li>
+    <li><b>Downloads:</b> to save your ZIP and .md files.</li>
+    <li><b>Storage:</b> to remember the progress of a task and your theme.</li>
+    <li><b>Side panel:</b> to show Ferry next to claude.ai.</li>
+  </ul>
+
+  <h2>Chrome Web Store User Data Policy</h2>
+  <p>The use of information received by Ferry adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements. Data is used only to provide Ferry's single purpose, moving your own Claude content between accounts, and is never transferred, sold or used for advertising, credit or any unrelated purpose.</p>
+
+  <h2>Children</h2>
+  <p>Ferry is not directed at children and does not knowingly handle data from children.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If Ferry ever starts handling data in a different way, this page will be updated before that change ships, and the date at the top will change.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:ferry.extension@gmail.com">ferry.extension@gmail.com</a></p>
+
+  <section class="idioma" id="es" lang="es">
+    <h1>Política de privacidad</h1>
+    <p class="fecha">Última actualización: 14 de noviembre de 2026</p>
+
+    <div class="resumen">
+      <p><b>En resumen:</b> Ferry funciona entero dentro de tu navegador. No tiene servidores, no recoge, vende ni comparte tus datos, y nada de lo que mueves con él llega nunca al desarrollador ni a terceros.</p>
+    </div>
+
+    <h2>Qué es Ferry</h2>
+    <p>Ferry es una extensión de Chrome que te ayuda a mover tus propios proyectos, chats y memoria de Claude de una cuenta de claude.ai a otra. Es una herramienta independiente: no la ha hecho, respaldado ni revisado Anthropic.</p>
+
+    <h2>Qué datos toca Ferry y para qué</h2>
+    <p>Ferry solo toca datos cuando tú se lo pides, y solo para hacer lo que le has pedido. Todo se queda entre tu navegador, tu cuenta de claude.ai y los archivos que guardas en tu propio dispositivo.</p>
+    <table>
+      <tr><th>Dato</th><th>Cuándo</th><th>Qué hace Ferry con él</th></tr>
+      <tr><td>Datos de tu cuenta de claude.ai (correo, nombre de las organizaciones)</td><td>Al abrir Ferry en claude.ai</td><td>Te enseña en qué cuenta estás. No se guarda.</td></tr>
+      <tr><td>Tus proyectos: nombre, descripción, instrucciones y archivos</td><td>Al listar o guardar un proyecto</td><td>Te los lista y, si eliges Guardar, los escribe en un ZIP en tu dispositivo.</td></tr>
+      <tr><td>La memoria de Claude sobre ti y tus proyectos</td><td>Al guardar un proyecto</td><td>La escribe en el ZIP. Al traer el proyecto a otra cuenta, solo se sube la memoria que marcas.</td></tr>
+      <tr><td>Tus chats (comunicaciones personales)</td><td>Al listar, guardar o traer un chat</td><td>Te los lista, guarda en archivos los que eliges y, si lo pides, los vuelve a crear en la otra cuenta.</td></tr>
+      <tr><td>Los archivos que abres en Ferry (.zip o .md)</td><td>Al traer algo a una cuenta</td><td>Los lee en tu navegador y crea el proyecto o el chat en la cuenta de claude.ai que estás usando.</td></tr>
+    </table>
+
+    <h2>Qué no hace Ferry</h2>
+    <ul>
+      <li>No envía ningún dato tuyo al desarrollador ni a terceros. Ferry no tiene servidores.</li>
+      <li>No lee, guarda ni envía tus contraseñas ni tus cookies. Las peticiones salen de la propia página de claude.ai, con la sesión que ya tienes abierta.</li>
+      <li>No usa analítica, seguimiento, publicidad ni código remoto.</li>
+      <li>No vende tus datos ni los usa para nada distinto de la mudanza que has pedido.</li>
+      <li>No lee el contenido de ninguna web aparte de claude.ai. Solo mira la dirección de la pestaña que tienes delante, para saber si es claude.ai.</li>
+    </ul>
+
+    <h2>Dónde quedan tus datos</h2>
+    <ul>
+      <li><b>En tu dispositivo:</b> los ZIP y .md que guardas van a tu carpeta de Descargas. Son tuyos y los puedes borrar cuando quieras.</li>
+      <li><b>En tu cuenta de claude.ai:</b> lo que traes a una cuenta (proyectos, archivos, memoria y chats) se crea allí, bajo tu control, como cualquier otra cosa que añades a claude.ai.</li>
+      <li><b>En el navegador:</b> Ferry guarda el progreso de la tarea en marcha, que se borra al cerrar el navegador, y el tema que elijas (claro, oscuro o automático).</li>
+    </ul>
+
+    <h2>Permisos que pide Ferry</h2>
+    <ul>
+      <li><b>Acceso a claude.ai:</b> para leer y crear tus proyectos y chats cuando se lo pides.</li>
+      <li><b>Scripts:</b> para hacer esas peticiones dentro de la pestaña de claude.ai, con tu sesión, y para empezar un chat nuevo cuando traes uno.</li>
+      <li><b>Pestañas:</b> para saber si la pestaña que tienes delante es claude.ai y para abrir el proyecto o el chat que acabas de traer.</li>
+      <li><b>Descargas:</b> para guardar tus ZIP y .md.</li>
+      <li><b>Almacenamiento:</b> para recordar el progreso de una tarea y tu tema.</li>
+      <li><b>Panel lateral:</b> para mostrar Ferry al lado de claude.ai.</li>
+    </ul>
+
+    <h2>Política de datos de la Chrome Web Store</h2>
+    <p>El uso de la información que recibe Ferry cumple la política de datos de usuario de la Chrome Web Store (Chrome Web Store User Data Policy), incluidos los requisitos de uso limitado (Limited Use). Los datos solo se usan para el único propósito de Ferry, mover tu propio contenido de Claude entre cuentas, y nunca se transfieren, venden ni usan para publicidad, crédito ni nada ajeno a ese propósito.</p>
+
+    <h2>Menores</h2>
+    <p>Ferry no está dirigido a menores y no trata a sabiendas datos de menores.</p>
+
+    <h2>Cambios en esta política</h2>
+    <p>Si algún día Ferry empieza a tratar los datos de otra forma, esta página se actualizará antes de publicar ese cambio, y cambiará la fecha de arriba.</p>
+
+    <h2>Contacto</h2>
+    <p>Dudas sobre esta política: <a href="mailto:ferry.extension@gmail.com">ferry.extension@gmail.com</a></p>
+  </section>
+</main>
+</body>
+</html>
