@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ferry: move Claude projects, chats and memory to another account</title>
+<meta name="description" content="Ferry is a free Chrome extension that moves your Claude projects, chats and memory from one claude.ai account to another. Not affiliated with Anthropic.">
+<link rel="canonical" href="https://getferry.net/">
+<link rel="alternate" hreflang="en" href="https://getferry.net/">
+<link rel="alternate" hreflang="es" href="https://getferry.net/es/">
+<link rel="alternate" hreflang="x-default" href="https://getferry.net/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ferry: move Claude projects, chats and memory to another account">
+<meta property="og:description" content="Ferry is a free Chrome extension that moves your Claude projects, chats and memory from one claude.ai account to another. Not affiliated with Anthropic.">
+<meta property="og:image" content="https://getferry.net/img/og.png">
+<meta property="og:url" content="https://getferry.net/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3F4F5">
+<link rel="icon" href="icon.png">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Skip to content</a>
+
+<main>
+<div class="portada">
+  <div class="marco">
+    <div class="anillo anillo-1" aria-hidden="true"></div>
+    <div class="anillo anillo-2" aria-hidden="true"></div>
+    <div class="anillo anillo-3" aria-hidden="true"></div>
+    <div class="brillo" aria-hidden="true"></div>
+    <div class="orbita o1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+    <div class="orbita o2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+    <div class="orbita o3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></div>
+    <div class="orbita o4" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5L12 14.5 7.5 16.8l.9-5L4.8 8.3l5-.7z"/></svg></div>
+    <div class="orbita o5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 3v2M12 7v2M12 11v2"/><rect x="10" y="14" width="4" height="4" rx="1"/></svg></div>
+    <div class="orbita o6 acento" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0F1417" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h16l-2.2 4.2a2 2 0 0 1-1.8 1.1H8a2 2 0 0 1-1.8-1.1z"/><path d="M7 14V9.5h8.5L18 14"/><path d="M10 9.5V6.5h3"/></svg></div>
+
+    <header class="barra">
+      <nav aria-label="Main">
+        <a class="marca" href="./"><span><svg viewBox="0 0 24 24" fill="none" stroke="#F6C90E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h16l-2.2 4.2a2 2 0 0 1-1.8 1.1H8a2 2 0 0 1-1.8-1.1z"/><path d="M7 14V9.5h8.5L18 14"/><path d="M10 9.5V6.5h3"/></svg></span>Ferry</a>
+        <a class="ancla" href="#how">How it works</a>
+        <a class="ancla" href="#privacy">Privacy</a>
+        <a class="ancla" href="#faq">FAQ</a>
+        <a class="idioma" href="es/" lang="es" hreflang="es">Español</a>
+        <a class="boton boton-oscuro boton-pequeno" href="https://chromewebstore.google.com/detail/hflghkalnkgcmkpppfkpddelokimodag">Add to Chrome</a>
+      </nav>
+    </header>
+
+    <div class="centro" id="contenido">
+      <div class="chips"><span><svg viewBox="0 0 24 24" fill="none" stroke="#16803C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#16803C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No sign-up</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#16803C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Runs in your browser</span></div>
+      <h1><span class="palabra" style="--i:0">Move</span> <span class="palabra" style="--i:1">your</span> <span class="palabra" style="--i:2">Claude</span> <span class="palabra" style="--i:3">projects</span> <span class="palabra" style="--i:4">to</span> <span class="palabra" style="--i:5">another</span> <span class="palabra" style="--i:6">account</span></h1>
+      <p class="entrada">Projects, chats and memory, from your personal account to your work one, or from an old account to a new one. In a few clicks, with nothing to copy by hand.</p>
+      <div class="acciones">
+        <a class="boton boton-oscuro" href="https://chromewebstore.google.com/detail/hflghkalnkgcmkpppfkpddelokimodag">Add to Chrome, it's free</a>
+        <a class="boton boton-claro" href="#how">See how it works</a>
+      </div>
+      <div class="pila" aria-hidden="true">
+        <div class="aviso-tarjeta t1"><span class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="#0F1417" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h16l-2.2 4.2a2 2 0 0 1-1.8 1.1H8a2 2 0 0 1-1.8-1.1z"/><path d="M7 14V9.5h8.5L18 14"/><path d="M10 9.5V6.5h3"/></svg></span><span><strong>Product launch is now in your work account</strong><small>Just now</small></span></div>
+        <div class="aviso-tarjeta t2"><span class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><span><strong>42 chats saved, 12 brought in</strong><small>The rest stay in your ZIP</small></span></div>
+        <div class="aviso-tarjeta t3"><span class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span><span><strong>Project memory added as CONTEXT.md</strong></span></div>
+      </div>
+      <p class="legal">Independent tool, not affiliated with Anthropic.</p>
+    </div>
+  </div>
+</div>
+
+<div class="envoltura">
+  <section class="seccion" aria-labelledby="cmp-h">
+    <div class="cabeza"><h2 id="cmp-h" data-aparece><span class="palabra" style="--i:0">Stop</span> <span class="palabra" style="--i:1">rebuilding</span> <span class="palabra" style="--i:2">projects</span> <span class="palabra" style="--i:3">by</span> <span class="palabra" style="--i:4">hand</span></h2><p data-aparece style="--retraso:.2s">Claude has no button to move a project to another account. Until now, that meant doing it piece by piece.</p></div>
+    <div class="comparar">
+      <div class="lado a-mano" data-aparece><h3>By hand</h3><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="#8A9398" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg>Download every file, one by one</li><li><svg viewBox="0 0 24 24" fill="none" stroke="#8A9398" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg>Copy and paste the instructions</li><li><svg viewBox="0 0 24 24" fill="none" stroke="#8A9398" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg>Create the project again from scratch</li><li><svg viewBox="0 0 24 24" fill="none" stroke="#8A9398" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg>Paste old chats back in, one at a time</li><li><svg viewBox="0 0 24 24" fill="none" stroke="#8A9398" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg>Lose what Claude remembered</li></ul></div>
+      <div class="lado con-ferry" data-aparece style="--retraso:.15s"><h3>With Ferry</h3><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="#16803C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Save the whole project as one ZIP</li><li><svg viewBox="0 0 24 24" fill="none" stroke="#16803C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Log in to the other account</li><li><svg viewBox="0 0 24 24" fill="none" stroke="#16803C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Bring it in with one click</li><li><svg viewBox="0 0 24 24" fill="none" stroke="#16803C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Memory comes along as CONTEXT.md</li></ul></div>
+    </div>
+  </section>
+
+  <section class="seccion" id="how" aria-labelledby="how-h">
+    <div class="pasos-banda">
+      <div class="cabeza"><h2 id="how-h" data-aparece><span class="palabra" style="--i:0">Three</span> <span class="palabra" style="--i:1">steps</span></h2><p data-aparece style="--retraso:.2s">Ferry opens in a side panel next to claude.ai, so you never leave the page.</p></div>
+      <ol class="pasos">
+        <li class="paso" data-aparece><h3>Take it from the old account</h3><p>Pick a project or any chat and save it. You get one ZIP file with everything inside.</p>
+          <div class="mini" aria-hidden="true">
+            <div class="mini-fila"><span class="radio"></span><b>Product launch</b><small>Yesterday</small></div>
+            <div class="mini-fila"><span class="radio" style="border:1.5px solid #9AA3A8"></span>Thesis research<small>3 days ago</small></div>
+            <div class="mini-boton">Save "Product launch"</div>
+          </div></li>
+        <li class="paso" data-aparece style="--retraso:.12s"><h3>Switch accounts</h3><p>Log in to claude.ai with the account you want to move to.</p>
+          <div class="mini" aria-hidden="true">
+            <div class="cuentas">
+              <div class="cuenta"><b>Personal</b><small>you@gmail.com</small></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0F1417" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <div class="cuenta destino"><b>Work</b><small>you@company.com</small></div>
+            </div>
+          </div></li>
+        <li class="paso" data-aparece style="--retraso:.24s"><h3>Bring it in</h3><p>Open Ferry again, choose the file and pick what to include. Then one click.</p>
+          <div class="mini" aria-hidden="true">
+            <div class="mini-fila"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Instructions</div>
+            <div class="mini-fila"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Files<small>6</small></div>
+            <div class="mini-fila"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Chats<small>12 of 42</small></div>
+            <div class="mini-boton">Bring project</div>
+          </div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="what-h">
+    <div class="cabeza"><h2 id="what-h" data-aparece><span class="palabra" style="--i:0">What</span> <span class="palabra" style="--i:1">comes</span> <span class="palabra" style="--i:2">with</span> <span class="palabra" style="--i:3">you</span></h2><p data-aparece style="--retraso:.2s">Ferry recreates the project as a private project in the new account.</p></div>
+    <div class="carga">
+      <article data-aparece><div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h3>Projects</h3><p>Instructions, knowledge files, project memory and the chats inside.</p></article>
+      <article data-aparece style="--retraso:.12s"><div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><h3>Single chats</h3><p>Search every chat, in a project or not, and continue it in the other account with its original title.</p></article>
+      <article data-aparece style="--retraso:.24s"><div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>Account memory <em>Optional</em></h3><p>What Claude remembers about you. Off by default, so personal details stay out of a work account.</p></article>
+    </div>
+  </section>
+
+  <section class="seccion" id="privacy" aria-labelledby="priv-h">
+    <div class="privada">
+      <div class="cabeza"><h2 id="priv-h" data-aparece><span class="palabra" style="--i:0">No</span> <span class="palabra" style="--i:1">servers</span> <span class="palabra" style="--i:2">in</span> <span class="palabra" style="--i:3">the</span> <span class="palabra" style="--i:4">middle</span></h2><p data-aparece style="--retraso:.2s">Ferry runs in your browser. Your data goes from claude.ai to your computer and back, and nowhere else.</p></div>
+      <div class="privada-grid">
+        <div data-aparece><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><h3>Nothing to sign up for</h3><p>Ferry uses the claude.ai session you already have. There is no Ferry account.</p></div>
+        <div data-aparece style="--retraso:.12s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c5 0 9 4.5 10 7a13 13 0 0 1-2.6 3.7M6.6 6.6C4.3 8 2.7 10.2 2 12c1 2.5 5 7 10 7a9.6 9.6 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg><h3>No tracking</h3><p>No analytics and no ads. Your data is never sold or shared.</p></div>
+        <div data-aparece style="--retraso:.24s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><h3>Only your projects</h3><p>Ferry lists the projects you created, never ones other people in your organization shared with you.</p></div>
+      </div>
+      <a class="enlace" href="privacy.html">Read the privacy policy</a>
+    </div>
+  </section>
+
+  <section class="seccion" id="faq" aria-labelledby="faq-h">
+    <div class="cabeza"><h2 id="faq-h" data-aparece><span class="palabra" style="--i:0">Questions</span></h2></div>
+    <div class="preguntas" data-aparece style="--retraso:.1s">
+      <details><summary>Is Ferry made by Anthropic?</summary><p>No. Ferry is an independent tool. It is not made, endorsed or supported by Anthropic. Claude is a trademark of Anthropic.</p></details>
+      <details><summary>Is it free?</summary><p>Yes. Ferry is free to install and use.</p></details>
+      <details><summary>Which accounts does it work with?</summary><p>Any claude.ai account you can log in to in Chrome. Ferry works on the claude.ai website, not inside the desktop or mobile apps.</p></details>
+      <details><summary>Does it move what Claude remembers?</summary><p>Project memory comes as a CONTEXT.md file in the new project, so Claude can read it from the first chat. Account memory is optional and comes as an ABOUT-ME.md file.</p></details>
+      <details><summary>Why not bring every chat into the project?</summary><p>Projects have a size limit and long chats fill it quickly. Ferry ticks the recommended items and shows the size before you import. Every chat stays saved in the ZIP file.</p></details>
+      <details><summary>Which browsers are supported?</summary><p>Chrome. Other Chromium browsers such as Edge or Brave may work, but they are not tested yet.</p></details>
+      <details><summary>Will it keep working?</summary><p>Ferry uses the same pages claude.ai uses. If claude.ai changes, a feature may stop working until Ferry is updated.</p></details>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-h">
+    <div><h2 id="final-h" data-aparece><span class="palabra" style="--i:0">Ready</span> <span class="palabra" style="--i:1">to</span> <span class="palabra" style="--i:2">move</span> <span class="palabra" style="--i:3">your</span> <span class="palabra" style="--i:4">projects?</span></h2><p data-aparece style="--retraso:.25s">Install Ferry and bring your first project over in a couple of minutes.</p></div>
+    <a class="boton boton-amarillo" href="https://chromewebstore.google.com/detail/hflghkalnkgcmkpppfkpddelokimodag" data-aparece style="--retraso:.35s">Add to Chrome, it's free</a>
+  </section>
+</div>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <p class="aviso">Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.</p>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="mailto:support@getferry.net">support@getferry.net</a>
+    <a href="es/" lang="es" hreflang="es">Español</a>
+  </div>
+</footer>
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-aparece]');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(function (e) { e.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+</body>
+</html>
