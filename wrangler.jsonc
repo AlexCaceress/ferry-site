@@ -1,9 +1,15 @@
-// Cloudflare Workers config: publishes this folder as a static website (no server code).
+// Cloudflare Workers config for getferry.net.
+// Static files are served as assets; worker.js only handles /api/waitlist (the Ferry Pro waitlist form).
 {
   "name": "ferry-site",
+  "main": "worker.js",
   "compatibility_date": "2026-09-01",
   "assets": {
     "directory": "./",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash"
-  }
+  },
+  "send_email": [
+    { "name": "AVISO", "destination_address": "ferry.extension@gmail.com" }
+  ]
 }

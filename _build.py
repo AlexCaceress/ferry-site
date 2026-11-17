@@ -31,13 +31,13 @@ T = {
   skip='Skip to content', nav_how='How it works', nav_priv='Privacy', nav_faq='FAQ', add='Add to Chrome',
   chips=['Free', 'No sign-up', 'Runs in your browser'],
   h1='Move your Claude projects to another account',
-  lead='Projects, chats and memory, from your personal account to your work one, or from an old account to a new one. In a few clicks, with nothing to copy by hand.',
+  lead='Projects, chats and memory, between any two claude.ai accounts, even with different emails. Personal, work or school. You pick exactly what comes along.',
   cta="Add to Chrome, it's free", see='See how it works',
   c1='Product launch is now in your work account', c1s='Just now',
   c2='42 chats saved, 12 brought in', c2s='The rest stay in your ZIP',
   c3='Project memory added as CONTEXT.md',
   legal='Independent tool, not affiliated with Anthropic.',
-  cmp_h='Stop rebuilding projects by hand', cmp_p='Claude has no button to move a project to another account. Until now, that meant doing it piece by piece.',
+  cmp_h='Stop rebuilding projects by hand', cmp_p='Claude only merges a personal account into a work one when both use the same email, and then it moves everything. Any other move meant doing it piece by piece.',
   hand_h='By hand', hand=['Download every file, one by one', 'Copy and paste the instructions', 'Create the project again from scratch', 'Paste old chats back in, one at a time', 'Lose what Claude remembered'],
   ferry_h='With Ferry', ferry=['Save the whole project as one ZIP', 'Log in to the other account', 'Bring it in with one click', 'Memory comes along as CONTEXT.md'],
   how_h='Three steps', how_p='Ferry opens in a side panel next to claude.ai, so you never leave the page.',
@@ -60,12 +60,17 @@ T = {
   faq=[
    ('Is Ferry made by Anthropic?', 'No. Ferry is an independent tool. It is not made, endorsed or supported by Anthropic. Claude is a trademark of Anthropic.'),
    ('Is it free?', 'Yes. Ferry is free to install and use.'),
+   ("Doesn't Claude already do this?", 'Only in one case: when you join a Team or Enterprise plan with the same email as your personal account, Claude can move that whole account into it. It cannot move between different emails, from a work account to a personal one, or between two personal accounts, and you cannot choose what moves. Ferry handles all of those.'),
    ('Which accounts does it work with?', 'Any claude.ai account you can log in to in Chrome. Ferry works on the claude.ai website, not inside the desktop or mobile apps.'),
    ('Does it move what Claude remembers?', 'Project memory comes as a CONTEXT.md file in the new project, so Claude can read it from the first chat. Account memory is optional and comes as an ABOUT-ME.md file.'),
    ('Why not bring every chat into the project?', 'Projects have a size limit and long chats fill it quickly. Ferry ticks the recommended items and shows the size before you import. Every chat stays saved in the ZIP file.'),
    ('Which browsers are supported?', 'Chrome. Other Chromium browsers such as Edge or Brave may work, but they are not tested yet.'),
    ('Will it keep working?', 'Ferry uses the same pages claude.ai uses. If claude.ai changes, a feature may stop working until Ferry is updated.'),
   ],
+  nav_pro='Any AI', pro_tag='Coming next', pro_h='Ferry for every AI', pro_p='Move your chats, projects and memory between ChatGPT, Claude, Gemini and more. Tell us which move you need and we will email you when it is ready, with early access.',
+  pro_label='Your email', pro_ph='you@example.com', pro_btn='Notify me', pro_note='One email when it is ready. Nothing else.',
+  pro_from='I want to move from', pro_to='to', pro_other='Other',
+  pro_ok="You're on the list. Thanks!", pro_err='That did not work. Check the email or write to support@getferry.net.',
   final_h='Ready to move your projects?', final_p='Install Ferry and bring your first project over in a couple of minutes.',
   foot='Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.', foot_priv='Privacy policy',
  ),
@@ -76,13 +81,13 @@ T = {
   skip='Ir al contenido', nav_how='Cómo funciona', nav_priv='Privacidad', nav_faq='Preguntas', add='Añadir a Chrome',
   chips=['Gratis', 'Sin registro', 'Funciona en tu navegador'],
   h1='Lleva tus proyectos de Claude a otra cuenta',
-  lead='Proyectos, chats y memoria, de tu cuenta personal a la del trabajo, o de una cuenta antigua a una nueva. En unos clics y sin copiar nada a mano.',
+  lead='Proyectos, chats y memoria, entre dos cuentas de claude.ai cualesquiera, aunque tengan correos distintos. Personal, del trabajo o de la universidad. Tú eliges exactamente qué se lleva.',
   cta='Añadir a Chrome, es gratis', see='Mira cómo funciona',
   c1='Product launch ya está en tu cuenta del trabajo', c1s='Ahora mismo',
   c2='42 chats guardados, 12 traídos', c2s='El resto se queda en tu ZIP',
   c3='Memoria del proyecto añadida como CONTEXTO.md',
   legal='Herramienta independiente, no afiliada a Anthropic.',
-  cmp_h='Deja de rehacer proyectos a mano', cmp_p='Claude no tiene un botón para mover un proyecto a otra cuenta. Hasta ahora había que hacerlo pieza a pieza.',
+  cmp_h='Deja de rehacer proyectos a mano', cmp_p='Claude solo une una cuenta personal a una de empresa si las dos usan el mismo correo, y entonces lo mueve todo. Cualquier otro cambio había que hacerlo pieza a pieza.',
   hand_h='A mano', hand=['Descargar los archivos uno a uno', 'Copiar y pegar las instrucciones', 'Crear el proyecto otra vez desde cero', 'Pegar los chats antiguos uno a uno', 'Perder lo que Claude recordaba'],
   ferry_h='Con Ferry', ferry=['Guardar el proyecto entero en un ZIP', 'Entrar en la otra cuenta', 'Traerlo con un clic', 'La memoria llega como CONTEXTO.md'],
   how_h='Tres pasos', how_p='Ferry se abre en un panel lateral junto a claude.ai, así que no sales de la página.',
@@ -105,12 +110,17 @@ T = {
   faq=[
    ('¿Ferry es de Anthropic?', 'No. Ferry es una herramienta independiente. No está hecha, respaldada ni soportada por Anthropic. Claude es una marca de Anthropic.'),
    ('¿Es gratis?', 'Sí. Ferry es gratis de instalar y de usar.'),
+   ('¿Claude no hace ya esto?', 'Solo en un caso: si te unes a un plan Team o Enterprise con el mismo correo que tu cuenta personal, Claude puede mover esa cuenta entera allí. No puede mover entre correos distintos, de una cuenta del trabajo a una personal ni entre dos cuentas personales, y no te deja elegir qué se mueve. Ferry hace todo eso.'),
    ('¿Con qué cuentas funciona?', 'Con cualquier cuenta de claude.ai en la que puedas entrar desde Chrome. Ferry funciona en la web de claude.ai, no dentro de las apps de escritorio o móvil.'),
    ('¿Se lleva lo que Claude recuerda?', 'La memoria del proyecto llega como un archivo CONTEXTO.md en el proyecto nuevo, así Claude la puede leer desde el primer chat. La memoria de la cuenta es opcional y llega como un archivo SOBRE-MI.md.'),
    ('¿Por qué no traer todos los chats al proyecto?', 'Los proyectos tienen un límite de tamaño y los chats largos lo llenan rápido. Ferry marca lo recomendado y te enseña el tamaño antes de importar. Todos los chats quedan guardados en el ZIP.'),
    ('¿Qué navegadores funcionan?', 'Chrome. Otros navegadores basados en Chromium, como Edge o Brave, pueden funcionar, pero aún no están probados.'),
    ('¿Seguirá funcionando?', 'Ferry usa las mismas páginas que usa claude.ai. Si claude.ai cambia, alguna función puede dejar de ir hasta que Ferry se actualice.'),
   ],
+  nav_pro='Cualquier IA', pro_tag='Próximamente', pro_h='Ferry para cualquier IA', pro_p='Mueve tus chats, proyectos y memoria entre ChatGPT, Claude, Gemini y más. Dinos qué cambio necesitas y te escribiremos cuando esté listo, con acceso anticipado.',
+  pro_label='Tu correo', pro_ph='tu@ejemplo.com', pro_btn='Avisarme', pro_note='Un único correo cuando esté listo. Nada más.',
+  pro_from='Quiero pasar de', pro_to='a', pro_other='Otra',
+  pro_ok='¡Ya estás en la lista! Gracias.', pro_err='No ha funcionado. Revisa el correo o escribe a support@getferry.net.',
   final_h='¿Listo para mover tus proyectos?', final_p='Instala Ferry y trae tu primer proyecto en un par de minutos.',
   foot='Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.', foot_priv='Política de privacidad',
  ),
@@ -118,6 +128,13 @@ T = {
 
 def palabras(texto):
     return ' '.join(f'<span class="palabra" style="--i:{i}">{w}</span>' for i, w in enumerate(texto.split()))
+
+IAS = ['ChatGPT', 'Claude', 'Gemini', 'Copilot', 'Perplexity', 'Grok', 'DeepSeek']
+
+def opciones(t, elegida):
+    ops = [f'<option{" selected" if ia == elegida else ""}>{ia}</option>' for ia in IAS]
+    ops.append(f'<option value="Other">{t["pro_other"]}</option>')
+    return ''.join(ops)
 
 def h2(id_, texto):
     return f'<h2 id="{id_}" data-aparece>{palabras(texto)}</h2>'
@@ -176,6 +193,7 @@ def page(t):
         <a class="ancla" href="#how">{t['nav_how']}</a>
         <a class="ancla" href="#privacy">{t['nav_priv']}</a>
         <a class="ancla" href="#faq">{t['nav_faq']}</a>
+        <a class="ancla" href="#pro">{t['nav_pro']}</a>
         <a class="idioma" href="{t['other']}" lang="{t['other_lang']}" hreflang="{t['other_lang']}">{t['other_name']}</a>
         <a class="boton boton-oscuro boton-pequeno" href="{STORE}">{t['add']}</a>
       </nav>
@@ -265,6 +283,31 @@ def page(t):
     </div>
   </section>
 
+  <section class="seccion" id="pro" aria-labelledby="pro-h">
+    <div class="pro" data-aparece>
+      <div class="pro-texto">
+        <span class="pro-marca">{svg(ESTRELLA, '#0F1417', '2')}{t['pro_tag']}</span>
+        {h2('pro-h', t['pro_h'])}
+        <p>{t['pro_p']}</p>
+      </div>
+      <form class="pro-form" id="lista" novalidate>
+        <div class="pro-ias">
+          <label for="pro-desde">{t['pro_from']}</label>
+          <select id="pro-desde" name="desde">{opciones(t, 'ChatGPT')}</select>
+          <label for="pro-hacia">{t['pro_to']}</label>
+          <select id="pro-hacia" name="hacia">{opciones(t, 'Claude')}</select>
+        </div>
+        <label for="pro-email">{t['pro_label']}</label>
+        <div class="pro-fila">
+          <input id="pro-email" name="email" type="email" autocomplete="email" required placeholder="{t['pro_ph']}">
+          <button class="boton boton-oscuro" type="submit">{t['pro_btn']}</button>
+        </div>
+        <input class="trampa" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="pro-nota" id="pro-estado" role="status" data-ok="{t['pro_ok']}" data-err="{t['pro_err']}">{t['pro_note']}</p>
+      </form>
+    </div>
+  </section>
+
   <section class="final" aria-labelledby="final-h">
     <div>{h2('final-h', t['final_h'])}<p data-aparece style="--retraso:.25s">{t['final_p']}</p></div>
     <a class="boton boton-amarillo" href="{STORE}" data-aparece style="--retraso:.35s">{t['cta']}</a>
@@ -293,6 +336,24 @@ def page(t):
     }});
   }}, {{ threshold: 0.15, rootMargin: '0px 0px -40px 0px' }});
   els.forEach(function (e) {{ io.observe(e); }});
+}})();
+(function () {{
+  var form = document.getElementById('lista');
+  if (!form) return;
+  var estado = document.getElementById('pro-estado');
+  var boton = form.querySelector('button');
+  form.addEventListener('submit', function (ev) {{
+    ev.preventDefault();
+    var email = form.email.value.trim();
+    if (!form.email.checkValidity() || !email) {{ estado.textContent = estado.dataset.err; estado.className = 'pro-nota mal'; form.email.focus(); return; }}
+    boton.disabled = true;
+    fetch('/api/waitlist', {{ method: 'POST', headers: {{ 'content-type': 'application/json' }},
+      body: JSON.stringify({{ email: email, desde: form.desde.value, hacia: form.hacia.value, lang: document.documentElement.lang, website: form.website.value }}) }})
+      .then(function (r) {{ return r.json().then(function (d) {{ if (!r.ok || !d.ok) throw new Error('x'); }}); }})
+      .then(function () {{ estado.textContent = estado.dataset.ok; estado.className = 'pro-nota bien'; form.reset(); }})
+      .catch(function () {{ estado.textContent = estado.dataset.err; estado.className = 'pro-nota mal'; }})
+      .then(function () {{ boton.disabled = false; }});
+  }});
 }})();
 </script>
 </body>

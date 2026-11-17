@@ -7,3 +7,4 @@ wrangler.jsonc
 .gitignore
 _build.py
 _to_delete
+worker.js
