@@ -242,3 +242,33 @@ h2 { font-size: clamp(32px, 4vw, 46px); line-height: 1.08; margin: 0; }
 .pro-ias label { margin: 0; font-weight: 600; font-size: 14px; }
 .pro-ias select { font: inherit; font-size: 15px; padding: 9px 34px 9px 12px; border: 1px solid #D5D9DC; border-radius: 10px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230F1417' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center; appearance: none; color: var(--tinta); cursor: pointer; }
 .pro-ias select:focus { outline: 3px solid var(--amarillo); outline-offset: 1px; }
+
+/* Guide pages */
+.guia-cabecera { display: flex; align-items: center; gap: 20px; padding: 24px 0; }
+.guia-cabecera .idioma { margin-left: auto; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--texto); }
+.guia { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; padding: 24px 0 40px; }
+.guia article { background: #fff; border-radius: 24px; padding: 56px; box-shadow: 0 0 0 1px #ECEEF0; }
+.guia-fecha { margin: 0 0 12px; font-size: 14px; color: var(--suave); }
+.guia h1 { font-size: clamp(34px, 4.4vw, 50px); line-height: 1.06; letter-spacing: -0.035em; margin: 0; }
+.guia-entrada { font-size: 19px; color: var(--suave); margin: 20px 0 8px; max-width: 60ch; }
+.guia article h2 { font-size: 26px; letter-spacing: -0.02em; margin: 44px 0 12px; }
+.guia article p, .guia article li { color: var(--texto); max-width: 68ch; }
+.guia article ul, .guia article ol { padding-left: 22px; }
+.guia article li { margin: 6px 0; }
+.tabla { overflow-x: auto; margin: 8px 0; border-radius: 14px; box-shadow: 0 0 0 1px #ECEEF0; }
+.tabla table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.tabla th, .tabla td { text-align: left; padding: 12px 16px; vertical-align: top; }
+.tabla th { background: var(--gris); font-weight: 600; }
+.tabla tr + tr td { border-top: 1px solid var(--linea); }
+.guia-cta { position: sticky; top: 24px; background: var(--grafito); color: #fff; border-radius: 24px; padding: 32px; }
+.guia-cta h2 { font-size: 24px; color: #fff; }
+.guia-cta p { color: #B9C1C4; margin: 10px 0 22px; }
+@media (max-width: 960px) {
+  .guia { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .guia article { padding: 32px 22px; border-radius: 20px; }
+  .guia-cta { position: static; }
+}
+.guia-enlace { text-align: center; margin: 28px 0 0; }
+.guia-enlace a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; background: #fff; border-radius: 999px; padding: 12px 20px; box-shadow: 0 0 0 1px #E1E4E6; }
+.guia-enlace a::after { content: ''; width: 7px; height: 7px; border-right: 2px solid currentColor; border-top: 2px solid currentColor; transform: rotate(45deg); }
+.guia-enlace a:hover { box-shadow: 0 0 0 1px var(--tinta); }

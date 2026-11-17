@@ -72,7 +72,7 @@ T = {
   pro_from='I want to move from', pro_to='to', pro_other='Other',
   pro_ok="You're on the list. Thanks!", pro_err='That did not work. Check the email or write to support@getferry.net.',
   final_h='Ready to move your projects?', final_p='Install Ferry and bring your first project over in a couple of minutes.',
-  foot='Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.', foot_priv='Privacy policy',
+  foot='Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.', foot_priv='Privacy policy', foot_guide='Guide: move Claude projects', nav_guide='Guide', faq_guide='Read the full guide: how to move Claude projects to another account', guide_url='guides/move-claude-projects-to-another-account/',
  ),
  'es': dict(
   lang='es', base='../', other='../', other_lang='en', other_name='English', privacy='../privacy.html#es', canon='https://getferry.net/es/',
@@ -122,7 +122,7 @@ T = {
   pro_from='Quiero pasar de', pro_to='a', pro_other='Otra',
   pro_ok='¡Ya estás en la lista! Gracias.', pro_err='No ha funcionado. Revisa el correo o escribe a support@getferry.net.',
   final_h='¿Listo para mover tus proyectos?', final_p='Instala Ferry y trae tu primer proyecto en un par de minutos.',
-  foot='Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.', foot_priv='Política de privacidad',
+  foot='Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.', foot_priv='Política de privacidad', foot_guide='Guía: mover proyectos de Claude', nav_guide='Guía', faq_guide='Lee la guía completa: cómo mover proyectos de Claude a otra cuenta', guide_url='guias/mover-proyectos-de-claude-a-otra-cuenta/',
  ),
 }
 
@@ -318,6 +318,7 @@ def page(t):
 <footer class="pie">
   <div class="envoltura">
     <p class="aviso">{t['foot']}</p>
+    <a href="{t['guide_url']}">{t['foot_guide']}</a>
     <a href="{t['privacy']}">{t['foot_priv']}</a>
     <a href="mailto:{EMAIL}">{EMAIL}</a>
     <a href="{t['other']}" lang="{t['other_lang']}" hreflang="{t['other_lang']}">{t['other_name']}</a>
@@ -360,8 +361,189 @@ def page(t):
 </html>
 '''
 
+
+# ---------- Guide pages (SEO) ----------
+G = {
+ 'en': dict(
+  lang='en', base='../../', home='../../', other='../../es/guias/mover-proyectos-de-claude-a-otra-cuenta/', other_lang='es', other_name='Español',
+  canon='https://getferry.net/guides/move-claude-projects-to-another-account/',
+  alt_en='https://getferry.net/guides/move-claude-projects-to-another-account/', alt_es='https://getferry.net/es/guias/mover-proyectos-de-claude-a-otra-cuenta/',
+  title='How to move Claude projects to another account (2026 guide)',
+  desc='Three ways to move Claude projects, chats and memory to another claude.ai account: Claude\'s built-in move, doing it by hand, or with the free Ferry extension.',
+  add='Add to Chrome', updated='Updated 17 November 2026',
+  h1='How to move Claude projects to another account',
+  lead='New job, a company Team plan, a second personal account, or leaving a school account behind. Here is what Claude lets you move, what it does not, and the fastest way to bring your projects, chats and memory along.',
+  body="""
+<h2>First, which move do you need?</h2>
+<div class="tabla"><table>
+<thead><tr><th>Your situation</th><th>Best option</th></tr></thead>
+<tbody>
+<tr><td>Personal account into your company's Team or Enterprise plan, <b>same email</b>, and you want to move everything</td><td>Claude's built-in move</td></tr>
+<tr><td>Accounts with <b>different emails</b></td><td>Ferry, or by hand</td></tr>
+<tr><td><b>Work account to personal</b> (for example, when you leave a job)</td><td>Ferry, or by hand</td></tr>
+<tr><td>Between <b>two personal accounts</b></td><td>Ferry, or by hand</td></tr>
+<tr><td>Only <b>some</b> projects or chats</td><td>Ferry, or by hand</td></tr>
+</tbody></table></div>
+
+<h2>Option 1: Claude's built-in move (same email only)</h2>
+<p>If your personal account and your company's Team or Enterprise account use the same email address, Claude can move your personal account into the organization. You choose this when you join, or later from the organization account. Chats, projects with their instructions and files, and Claude's memory come along.</p>
+<p>Know the limits before you start:</p>
+<ul>
+<li>It only works with the <b>same email</b>. Claude cannot move chats from one email address to another.</li>
+<li>It moves <b>everything or nothing</b>. You cannot pick which chats or projects go.</li>
+<li>It <b>cannot be undone</b>, and your personal account is closed afterwards.</li>
+<li>Some things never move, such as custom skills, app connections and public share links.</li>
+</ul>
+
+<h2>Option 2: By hand</h2>
+<p>For any other move, you can rebuild the project yourself. It works, but it takes a while with large projects.</p>
+<ol>
+<li>In the old account, open the project and copy its <b>instructions</b>.</li>
+<li>Download every <b>knowledge file</b>, one by one.</li>
+<li>Ask Claude, inside the project, to summarize what it remembers about it, and save that answer as a text file.</li>
+<li>Copy any <b>chats</b> you want to keep into text files. There is no way to import a chat into another account.</li>
+<li>In the new account, create a project, paste the instructions and upload the files from steps 2 to 4.</li>
+</ol>
+<p>Claude's data export (Settings, Privacy) does not help here: it is a download for your records and cannot be imported into another account.</p>
+
+<h2>Option 3: With Ferry, in a few clicks</h2>
+<p>Ferry is a free Chrome extension that does option 2 for you, between any two claude.ai accounts.</p>
+<ol>
+<li>Install Ferry and open claude.ai with the <b>old account</b>.</li>
+<li>Open Ferry from the toolbar, choose <b>Take from this account</b>, pick the project and save it. You get one ZIP file with the instructions, files, project memory and chats.</li>
+<li>Log in to claude.ai with the <b>new account</b>.</li>
+<li>Open Ferry again, choose <b>Bring to this account</b> and select the ZIP. Pick which memory notes and chats to include, then click once.</li>
+</ol>
+<p>Ferry recreates it as a private project with the original instructions and files, plus a CONTEXT.md file with what Claude remembered. It can also take a single chat and continue it in the other account. Everything happens in your browser: Ferry has no servers.</p>
+
+<h2>What about Claude's memory?</h2>
+<p>Memory does not carry over between separate accounts, except with Claude's built-in move above. With Ferry, project memory arrives as a CONTEXT.md file inside the new project, so Claude can read it from the first chat. Your account memory can come along too, as an optional file.</p>
+""",
+  cta_h='Move your first project now', cta_p='Free, no sign-up, and it runs in your browser.', cta='Add to Chrome, it\'s free',
+  foot='Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.', foot_priv='Privacy policy', privacy='../../privacy.html',
+ ),
+ 'es': dict(
+  lang='es', base='../../../', home='../../', other='../../../guides/move-claude-projects-to-another-account/', other_lang='en', other_name='English',
+  canon='https://getferry.net/es/guias/mover-proyectos-de-claude-a-otra-cuenta/',
+  alt_en='https://getferry.net/guides/move-claude-projects-to-another-account/', alt_es='https://getferry.net/es/guias/mover-proyectos-de-claude-a-otra-cuenta/',
+  title='Cómo mover proyectos de Claude a otra cuenta (guía 2026)',
+  desc='Tres formas de mover proyectos, chats y memoria de Claude a otra cuenta de claude.ai: la migración de Claude, a mano o con la extensión gratuita Ferry.',
+  add='Añadir a Chrome', updated='Actualizada el 17 de noviembre de 2026',
+  h1='Cómo mover proyectos de Claude a otra cuenta',
+  lead='Un trabajo nuevo, el plan Team de tu empresa, una segunda cuenta personal o dejar atrás la cuenta de la universidad. Esto es lo que Claude te deja mover, lo que no, y la forma más rápida de llevarte tus proyectos, chats y memoria.',
+  body="""
+<h2>Primero, ¿qué cambio necesitas?</h2>
+<div class="tabla"><table>
+<thead><tr><th>Tu situación</th><th>Mejor opción</th></tr></thead>
+<tbody>
+<tr><td>Cuenta personal al plan Team o Enterprise de tu empresa, <b>mismo correo</b>, y quieres moverlo todo</td><td>La migración de Claude</td></tr>
+<tr><td>Cuentas con <b>correos distintos</b></td><td>Ferry, o a mano</td></tr>
+<tr><td><b>De la cuenta del trabajo a la personal</b> (por ejemplo, al dejar un trabajo)</td><td>Ferry, o a mano</td></tr>
+<tr><td>Entre <b>dos cuentas personales</b></td><td>Ferry, o a mano</td></tr>
+<tr><td>Solo <b>algunos</b> proyectos o chats</td><td>Ferry, o a mano</td></tr>
+</tbody></table></div>
+
+<h2>Opción 1: la migración de Claude (solo con el mismo correo)</h2>
+<p>Si tu cuenta personal y la cuenta Team o Enterprise de tu empresa usan el mismo correo, Claude puede mover tu cuenta personal a la organización. Se elige al unirte, o más tarde desde la cuenta de la organización. Se mueven los chats, los proyectos con sus instrucciones y archivos, y la memoria de Claude.</p>
+<p>Conoce los límites antes de empezar:</p>
+<ul>
+<li>Solo funciona con el <b>mismo correo</b>. Claude no puede mover chats de un correo a otro.</li>
+<li>Mueve <b>todo o nada</b>. No puedes elegir qué chats o proyectos se llevan.</li>
+<li><b>No se puede deshacer</b>, y tu cuenta personal se cierra después.</li>
+<li>Algunas cosas nunca se mueven, como las skills personalizadas, las conexiones con apps y los enlaces públicos.</li>
+</ul>
+
+<h2>Opción 2: a mano</h2>
+<p>Para cualquier otro caso, puedes rehacer el proyecto tú mismo. Funciona, pero lleva tiempo con proyectos grandes.</p>
+<ol>
+<li>En la cuenta antigua, abre el proyecto y copia sus <b>instrucciones</b>.</li>
+<li>Descarga todos los <b>archivos de conocimiento</b>, uno a uno.</li>
+<li>Pide a Claude, dentro del proyecto, que resuma lo que recuerda de él, y guarda esa respuesta en un archivo de texto.</li>
+<li>Copia los <b>chats</b> que quieras conservar en archivos de texto. No hay forma de importar un chat en otra cuenta.</li>
+<li>En la cuenta nueva, crea un proyecto, pega las instrucciones y sube los archivos de los pasos 2 a 4.</li>
+</ol>
+<p>La exportación de datos de Claude (Ajustes, Privacidad) no sirve para esto: es una descarga para tu archivo y no se puede importar en otra cuenta.</p>
+
+<h2>Opción 3: con Ferry, en unos clics</h2>
+<p>Ferry es una extensión gratuita de Chrome que hace la opción 2 por ti, entre dos cuentas de claude.ai cualesquiera.</p>
+<ol>
+<li>Instala Ferry y abre claude.ai con la <b>cuenta antigua</b>.</li>
+<li>Abre Ferry desde la barra, elige <b>Llevar desde esta cuenta</b>, escoge el proyecto y guárdalo. Obtienes un único ZIP con las instrucciones, los archivos, la memoria del proyecto y los chats.</li>
+<li>Entra en claude.ai con la <b>cuenta nueva</b>.</li>
+<li>Abre Ferry otra vez, elige <b>Traer a esta cuenta</b> y selecciona el ZIP. Marca qué notas de memoria y qué chats incluir, y haz un clic.</li>
+</ol>
+<p>Ferry lo vuelve a crear como proyecto privado, con las instrucciones y archivos originales y un archivo CONTEXTO.md con lo que Claude recordaba. También puede llevarse un chat suelto y seguirlo en la otra cuenta. Todo ocurre en tu navegador: Ferry no tiene servidores.</p>
+
+<h2>¿Y la memoria de Claude?</h2>
+<p>La memoria no pasa entre cuentas separadas, salvo con la migración de Claude de arriba. Con Ferry, la memoria del proyecto llega como un archivo CONTEXTO.md dentro del proyecto nuevo, así Claude la puede leer desde el primer chat. La memoria de tu cuenta también puede venir, como archivo opcional.</p>
+""",
+  cta_h='Mueve tu primer proyecto ahora', cta_p='Gratis, sin registro y funciona en tu navegador.', cta='Añadir a Chrome, es gratis',
+  foot='Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.', foot_priv='Política de privacidad', privacy='../../../privacy.html#es',
+ ),
+}
+
+def guide(g):
+    b = g['base']
+    return f'''<!doctype html>
+<html lang="{g['lang']}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{g['title']}</title>
+<meta name="description" content="{g['desc']}">
+<link rel="canonical" href="{g['canon']}">
+<link rel="alternate" hreflang="en" href="{g['alt_en']}">
+<link rel="alternate" hreflang="es" href="{g['alt_es']}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{g['title']}">
+<meta property="og:description" content="{g['desc']}">
+<meta property="og:image" content="https://getferry.net/img/og.png">
+<meta property="og:url" content="{g['canon']}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3F4F5">
+<link rel="icon" href="{b}icon.png">
+<link rel="preload" href="{b}fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{b}site.css">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Article","headline":"{g['h1']}","inLanguage":"{g['lang']}","dateModified":"2026-11-17","author":{{"@type":"Organization","name":"Ferry"}},"publisher":{{"@type":"Organization","name":"Ferry","url":"https://getferry.net/"}}}}</script>
+</head>
+<body>
+<div class="envoltura">
+  <header class="guia-cabecera">
+    <a class="marca" href="{g['home']}"><span>{svg(BARCO, '#F6C90E', '2')}</span>Ferry</a>
+    <a class="idioma" href="{g['other']}" lang="{g['other_lang']}" hreflang="{g['other_lang']}">{g['other_name']}</a>
+    <a class="boton boton-oscuro boton-pequeno" href="{STORE}">{g['add']}</a>
+  </header>
+  <main class="guia">
+    <article>
+      <p class="guia-fecha">{g['updated']}</p>
+      <h1>{g['h1']}</h1>
+      <p class="guia-entrada">{g['lead']}</p>
+      {g['body']}
+    </article>
+    <aside class="guia-cta">
+      <h2>{g['cta_h']}</h2>
+      <p>{g['cta_p']}</p>
+      <a class="boton boton-amarillo" href="{STORE}">{g['cta']}</a>
+    </aside>
+  </main>
+</div>
+<footer class="pie">
+  <div class="envoltura">
+    <p class="aviso">{g['foot']}</p>
+    <a href="{g['privacy']}">{g['foot_priv']}</a>
+    <a href="mailto:{EMAIL}">{EMAIL}</a>
+  </div>
+</footer>
+</body>
+</html>
+'''
+
 here = os.path.dirname(os.path.abspath(__file__))
 os.makedirs(os.path.join(here, 'es'), exist_ok=True)
 open(os.path.join(here, 'index.html'), 'w', encoding='utf-8').write(page(T['en']))
 open(os.path.join(here, 'es', 'index.html'), 'w', encoding='utf-8').write(page(T['es']))
+for ruta, g in [(('guides', 'move-claude-projects-to-another-account'), G['en']), (('es', 'guias', 'mover-proyectos-de-claude-a-otra-cuenta'), G['es'])]:
+    d = os.path.join(here, *ruta)
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(guide(g))
 print('ok')
