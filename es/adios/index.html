@@ -32,7 +32,7 @@
       <input class="trampa" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="fb-envio">
         <button class="boton boton-oscuro" type="submit">Enviar</button>
-        <p class="pro-nota" id="fb-estado" role="status" data-ok="Gracias por contárnoslo." data-err="No ha funcionado. Prueba otra vez o escribe a support@getferry.net." data-need="Elige una opción o escribe algo primero." data-mail="Revisa el correo o déjalo vacío.">Solo se envía lo que escribas aquí, y solo cuando pulses Enviar.</p>
+        <p class="pro-nota" id="fb-estado" role="status" data-ok="Gracias por contárnoslo." data-err="No ha funcionado. Prueba otra vez o escribe a support@getferry.net." data-need="Elige una opción o escribe algo primero." data-mail="Revisa el correo o déjalo vacío.">Solo se envía lo que rellenes aquí, y solo cuando pulses Enviar.</p>
       </div>
     </form>
     <p class="fb-otra" id="fb-otra" hidden>Si vuelves a necesitar Ferry, sigue siendo gratis. <a href="https://chromewebstore.google.com/detail/hflghkalnkgcmkpppfkpddelokimodag">Añadir Ferry a Chrome</a></p>
@@ -53,17 +53,20 @@
   var boton = form.querySelector('button');
   var v = new URLSearchParams(location.search).get('v') || '';
   function aviso(texto, clase) { estado.textContent = texto; estado.className = 'pro-nota ' + clase; }
+  function marcados(nombre) {
+    return Array.prototype.map.call(form.querySelectorAll('input[name=' + nombre + ']:checked'), function (i) { return i.value; });
+  }
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
-    var marcado = form.querySelector('input[name=motivo]:checked');
+    var datos = { tipo: form.dataset.tipo, motivo: marcados('motivo')[0] || '', que: marcados('que'), donde: marcados('donde') };
     var texto = form.texto.value.trim();
     var email = form.email.value.trim();
-    if (!marcado && !texto) { aviso(estado.dataset.need, 'mal'); return; }
+    if (!datos.motivo && !datos.que.length && !datos.donde.length && !texto) { aviso(estado.dataset.need, 'mal'); return; }
     if (email && !form.email.checkValidity()) { aviso(estado.dataset.mail, 'mal'); form.email.focus(); return; }
+    datos.texto = texto; datos.email = email; datos.version = v;
+    datos.lang = document.documentElement.lang; datos.website = form.website.value;
     boton.disabled = true;
-    fetch('/api/feedback', { method: 'POST', headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ tipo: form.dataset.tipo, motivo: marcado ? marcado.value : '', texto: texto, email: email,
-        version: v, lang: document.documentElement.lang, website: form.website.value }) })
+    fetch('/api/feedback', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(datos) })
       .then(function (r) { return r.json().then(function (d) { if (!r.ok || !d.ok) throw new Error('x'); }); })
       .then(function () {
         form.hidden = true;

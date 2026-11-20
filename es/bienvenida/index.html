@@ -19,29 +19,32 @@
   <main>
   <section class="fb-tarjeta" aria-labelledby="fb-h">
     <h1 id="fb-h">Ferry ya está listo</h1>
-    <p class="fb-entrada">Así mueves tu primer proyecto. Son un par de minutos.</p>
-    <ol class="fb-pasos"><li><h3>Fija Ferry</h3><p>Pulsa el icono del puzle, arriba a la derecha de Chrome, y fija Ferry para tenerlo siempre a un clic.</p></li><li><h3>Llévatelo de la cuenta antigua</h3><p>Abre claude.ai con esa cuenta y pulsa el icono de Ferry. Elige <b>Llevar desde esta cuenta</b> y guarda el proyecto o el chat.</p></li><li><h3>Cambia de cuenta</h3><p>Entra en claude.ai con la cuenta a la que lo quieres mover.</p></li><li><h3>Tráelo</h3><p>Abre Ferry otra vez, elige <b>Traer a esta cuenta</b>, escoge el archivo y marca qué incluir.</p></li></ol>
-    <a class="boton boton-oscuro" href="https://claude.ai">Abrir claude.ai</a>
-  </section>
-  <section class="fb-tarjeta" aria-labelledby="fb-q">
-    <h2 id="fb-q">Una pregunta antes de empezar</h2>
-    <p class="fb-sub">Ferry es nuevo, y tu respuesta decide qué hace a continuación.</p>
+    <p class="fb-entrada">Antes de empezar, unas preguntas rápidas. Tus respuestas deciden qué hace Ferry a continuación.</p>
     <form class="fb-form" id="fb" novalidate data-tipo="welcome">
       <fieldset>
-        <legend>¿Qué cambio necesitas?</legend>
-        <div class="fb-ops"><label class="fb-op"><input type="radio" name="motivo" value="personal-work"><span>De una cuenta personal a una del trabajo</span></label><label class="fb-op"><input type="radio" name="motivo" value="work-personal"><span>De una cuenta del trabajo a una personal</span></label><label class="fb-op"><input type="radio" name="motivo" value="personal-personal"><span>Entre dos cuentas personales</span></label><label class="fb-op"><input type="radio" name="motivo" value="school"><span>Sacarlo de una cuenta de la universidad o el colegio</span></label><label class="fb-op"><input type="radio" name="motivo" value="other-ai"><span>De otra IA (ChatGPT, Gemini…) a Claude</span></label><label class="fb-op"><input type="radio" name="motivo" value="other"><span>Otra cosa</span></label></div>
+        <legend>¿Qué quieres mover? <span class="fb-opc">(marca las que quieras)</span></legend>
+        <div class="fb-ops"><label class="fb-op"><input type="checkbox" name="que" value="projects"><span>Proyectos</span></label><label class="fb-op"><input type="checkbox" name="que" value="bulk-chats"><span>Muchos chats a la vez</span></label><label class="fb-op"><input type="checkbox" name="que" value="memory"><span>La memoria de Claude</span></label><label class="fb-op"><input type="checkbox" name="que" value="whole-account"><span>Todo lo de mi cuenta de golpe</span></label></div>
       </fieldset>
-      <label for="fb-texto">¿Qué quieres mover y por qué? <span class="fb-opc">(opcional)</span></label>
-      <textarea id="fb-texto" name="texto" rows="3" maxlength="2000" placeholder="Por ejemplo: 12 proyectos de la cuenta de mi antiguo trabajo, porque me voy de la empresa."></textarea>
+      <fieldset>
+        <legend>¿A dónde lo quieres llevar? <span class="fb-opc">(marca las que quieras)</span></legend>
+        <div class="fb-ops"><label class="fb-op"><input type="checkbox" name="donde" value="claude-account"><span>A otra cuenta de Claude</span></label><label class="fb-op"><input type="checkbox" name="donde" value="claude-chatgpt"><span>De Claude a ChatGPT</span></label><label class="fb-op"><input type="checkbox" name="donde" value="claude-gemini"><span>De Claude a Gemini</span></label><label class="fb-op"><input type="checkbox" name="donde" value="other-ai-claude"><span>De ChatGPT o Gemini a Claude</span></label><label class="fb-op"><input type="checkbox" name="donde" value="other"><span>A otro sitio</span></label></div>
+      </fieldset>
+      <label for="fb-texto">¿Qué tendría que hacer Ferry para que te fuera de verdad útil? <span class="fb-opc">(opcional)</span></label>
+      <textarea id="fb-texto" name="texto" rows="3" maxlength="2000" placeholder="Lo que eches en falta, con tus palabras."></textarea>
       <label for="fb-email">Tu correo, si quieres que te respondamos <span class="fb-opc">(opcional)</span></label>
       <input id="fb-email" name="email" type="email" autocomplete="email" maxlength="254">
       <input class="trampa" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="fb-envio">
         <button class="boton boton-oscuro" type="submit">Enviar</button>
-        <p class="pro-nota" id="fb-estado" role="status" data-ok="¡Gracias! Ayuda mucho a decidir qué hace Ferry después." data-err="No ha funcionado. Prueba otra vez o escribe a support@getferry.net." data-need="Elige una opción o escribe algo primero." data-mail="Revisa el correo o déjalo vacío.">Solo se envía lo que escribas aquí, y solo cuando pulses Enviar.</p>
+        <p class="pro-nota" id="fb-estado" role="status" data-ok="¡Gracias! Ayuda mucho a decidir qué hace Ferry después." data-err="No ha funcionado. Prueba otra vez o escribe a support@getferry.net." data-need="Marca alguna opción o escribe unas palabras primero." data-mail="Revisa el correo o déjalo vacío.">Solo se envía lo que rellenes aquí, y solo cuando pulses Enviar.</p>
       </div>
     </form>
     
+  </section>
+  <section class="fb-tarjeta" aria-labelledby="fb-pasos">
+    <h2 id="fb-pasos">Cómo mover tu primer proyecto</h2>
+    <ol class="fb-pasos"><li><h3>Fija Ferry</h3><p>Pulsa el icono del puzle, arriba a la derecha de Chrome, y fija Ferry para tenerlo siempre a un clic.</p></li><li><h3>Llévatelo de la cuenta antigua</h3><p>Abre claude.ai con esa cuenta y pulsa el icono de Ferry. Elige <b>Llevar desde esta cuenta</b> y guarda el proyecto o el chat.</p></li><li><h3>Cambia de cuenta</h3><p>Entra en claude.ai con la cuenta a la que lo quieres mover.</p></li><li><h3>Tráelo</h3><p>Abre Ferry otra vez, elige <b>Traer a esta cuenta</b>, escoge el archivo y marca qué incluir.</p></li></ol>
+    <a class="boton boton-oscuro" href="https://claude.ai">Abrir claude.ai</a>
   </section>
   </main>
 </div>
@@ -59,17 +62,20 @@
   var boton = form.querySelector('button');
   var v = new URLSearchParams(location.search).get('v') || '';
   function aviso(texto, clase) { estado.textContent = texto; estado.className = 'pro-nota ' + clase; }
+  function marcados(nombre) {
+    return Array.prototype.map.call(form.querySelectorAll('input[name=' + nombre + ']:checked'), function (i) { return i.value; });
+  }
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
-    var marcado = form.querySelector('input[name=motivo]:checked');
+    var datos = { tipo: form.dataset.tipo, motivo: marcados('motivo')[0] || '', que: marcados('que'), donde: marcados('donde') };
     var texto = form.texto.value.trim();
     var email = form.email.value.trim();
-    if (!marcado && !texto) { aviso(estado.dataset.need, 'mal'); return; }
+    if (!datos.motivo && !datos.que.length && !datos.donde.length && !texto) { aviso(estado.dataset.need, 'mal'); return; }
     if (email && !form.email.checkValidity()) { aviso(estado.dataset.mail, 'mal'); form.email.focus(); return; }
+    datos.texto = texto; datos.email = email; datos.version = v;
+    datos.lang = document.documentElement.lang; datos.website = form.website.value;
     boton.disabled = true;
-    fetch('/api/feedback', { method: 'POST', headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ tipo: form.dataset.tipo, motivo: marcado ? marcado.value : '', texto: texto, email: email,
-        version: v, lang: document.documentElement.lang, website: form.website.value }) })
+    fetch('/api/feedback', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(datos) })
       .then(function (r) { return r.json().then(function (d) { if (!r.ok || !d.ok) throw new Error('x'); }); })
       .then(function () {
         form.hidden = true;

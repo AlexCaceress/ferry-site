@@ -540,71 +540,84 @@ def guide(g):
 
 # ---------- Pages the extension opens: welcome (after install) and bye (after uninstall) ----------
 # Not in the sitemap and marked noindex. The form posts to /api/feedback (worker.js).
+# Each question is (name, input type, question, hint, options). Option values must match MOTIVOS in worker.js.
 
 F = {
  'welcome_en': dict(
   lang='en', base='../', home='../', tipo='welcome', other='../es/bienvenida/', other_lang='es', other_name='Español', privacy='../privacy.html',
   title='Ferry is installed', h1='Ferry is ready',
-  lead='Here is how to move your first project. It takes a couple of minutes.',
+  lead='Before you start, a few quick questions. Your answers decide what Ferry does next.',
+  preguntas=[
+   ('que', 'checkbox', 'What do you want to move?', 'pick any', [
+     ('projects', 'Projects'), ('bulk-chats', 'Lots of chats at once'),
+     ('memory', "Claude's memory"), ('whole-account', 'Everything in my account at once')]),
+   ('donde', 'checkbox', 'Where do you want to take it?', 'pick any', [
+     ('claude-account', 'To another Claude account'), ('claude-chatgpt', 'From Claude to ChatGPT'),
+     ('claude-gemini', 'From Claude to Gemini'), ('other-ai-claude', 'From ChatGPT or Gemini to Claude'),
+     ('other', 'Somewhere else')]),
+  ],
+  text_label='What would Ferry need to do to be really useful to you?', optional='optional',
+  text_ph='Anything you are missing, in your own words.',
+  email_label='Your email, if you would like a reply',
+  btn='Send', note='Only what you fill in here is sent, and only when you press Send.',
+  ok='Thanks! It really helps decide what Ferry does next.', need='Tick something or write a few words first.',
+  err='That did not work. Try again or write to support@getferry.net.', mail='Check the email address, or leave it empty.',
+  steps_h='How to move your first project',
   steps=[
    ('Pin Ferry', 'Click the puzzle icon at the top right of Chrome and pin Ferry, so it is always one click away.'),
    ('Take it from the old account', 'Open claude.ai with that account and click the Ferry icon. Choose <b>Take from this account</b> and save the project or chat.'),
    ('Switch accounts', 'Log in to claude.ai with the account you want to move to.'),
    ('Bring it in', 'Open Ferry again, choose <b>Bring to this account</b>, pick the file and tick what to include.'),
   ],
-  open_claude='Open claude.ai',
-  q_h='One question before you start', q_p='Ferry is new, and your answer decides what it does next.',
-  legend='What kind of move do you need?',
-  opts=[('personal-work', 'From a personal account to a work one'), ('work-personal', 'From a work account to a personal one'),
-        ('personal-personal', 'Between two personal accounts'), ('school', 'Out of a school or university account'),
-        ('other-ai', 'From another AI (ChatGPT, Gemini…) to Claude'), ('other', 'Something else')],
-  text_label='What do you want to move, and why?', optional='optional',
-  text_ph='For example: 12 projects from my old job account, because I am leaving the company.',
-  email_label='Your email, if you would like a reply',
-  btn='Send', note='Only what you write here is sent, and only when you press Send.',
-  ok='Thanks! It really helps decide what Ferry does next.', need='Pick an option or write a few words first.',
-  err='That did not work. Try again or write to support@getferry.net.', mail='Check the email address, or leave it empty.', again='', again_link='',
+  open_claude='Open claude.ai', again='', again_link='',
   foot='Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.', foot_priv='Privacy policy',
  ),
  'welcome_es': dict(
   lang='es', base='../../', home='../', tipo='welcome', other='../../welcome/', other_lang='en', other_name='English', privacy='../../privacy.html#es',
   title='Ferry está instalado', h1='Ferry ya está listo',
-  lead='Así mueves tu primer proyecto. Son un par de minutos.',
+  lead='Antes de empezar, unas preguntas rápidas. Tus respuestas deciden qué hace Ferry a continuación.',
+  preguntas=[
+   ('que', 'checkbox', '¿Qué quieres mover?', 'marca las que quieras', [
+     ('projects', 'Proyectos'), ('bulk-chats', 'Muchos chats a la vez'),
+     ('memory', 'La memoria de Claude'), ('whole-account', 'Todo lo de mi cuenta de golpe')]),
+   ('donde', 'checkbox', '¿A dónde lo quieres llevar?', 'marca las que quieras', [
+     ('claude-account', 'A otra cuenta de Claude'), ('claude-chatgpt', 'De Claude a ChatGPT'),
+     ('claude-gemini', 'De Claude a Gemini'), ('other-ai-claude', 'De ChatGPT o Gemini a Claude'),
+     ('other', 'A otro sitio')]),
+  ],
+  text_label='¿Qué tendría que hacer Ferry para que te fuera de verdad útil?', optional='opcional',
+  text_ph='Lo que eches en falta, con tus palabras.',
+  email_label='Tu correo, si quieres que te respondamos',
+  btn='Enviar', note='Solo se envía lo que rellenes aquí, y solo cuando pulses Enviar.',
+  ok='¡Gracias! Ayuda mucho a decidir qué hace Ferry después.', need='Marca alguna opción o escribe unas palabras primero.',
+  err='No ha funcionado. Prueba otra vez o escribe a support@getferry.net.', mail='Revisa el correo o déjalo vacío.',
+  steps_h='Cómo mover tu primer proyecto',
   steps=[
    ('Fija Ferry', 'Pulsa el icono del puzle, arriba a la derecha de Chrome, y fija Ferry para tenerlo siempre a un clic.'),
    ('Llévatelo de la cuenta antigua', 'Abre claude.ai con esa cuenta y pulsa el icono de Ferry. Elige <b>Llevar desde esta cuenta</b> y guarda el proyecto o el chat.'),
    ('Cambia de cuenta', 'Entra en claude.ai con la cuenta a la que lo quieres mover.'),
    ('Tráelo', 'Abre Ferry otra vez, elige <b>Traer a esta cuenta</b>, escoge el archivo y marca qué incluir.'),
   ],
-  open_claude='Abrir claude.ai',
-  q_h='Una pregunta antes de empezar', q_p='Ferry es nuevo, y tu respuesta decide qué hace a continuación.',
-  legend='¿Qué cambio necesitas?',
-  opts=[('personal-work', 'De una cuenta personal a una del trabajo'), ('work-personal', 'De una cuenta del trabajo a una personal'),
-        ('personal-personal', 'Entre dos cuentas personales'), ('school', 'Sacarlo de una cuenta de la universidad o el colegio'),
-        ('other-ai', 'De otra IA (ChatGPT, Gemini…) a Claude'), ('other', 'Otra cosa')],
-  text_label='¿Qué quieres mover y por qué?', optional='opcional',
-  text_ph='Por ejemplo: 12 proyectos de la cuenta de mi antiguo trabajo, porque me voy de la empresa.',
-  email_label='Tu correo, si quieres que te respondamos',
-  btn='Enviar', note='Solo se envía lo que escribas aquí, y solo cuando pulses Enviar.',
-  ok='¡Gracias! Ayuda mucho a decidir qué hace Ferry después.', need='Elige una opción o escribe algo primero.',
-  err='No ha funcionado. Prueba otra vez o escribe a support@getferry.net.', mail='Revisa el correo o déjalo vacío.', again='', again_link='',
+  open_claude='Abrir claude.ai', again='', again_link='',
   foot='Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.', foot_priv='Política de privacidad',
  ),
  'bye_en': dict(
   lang='en', base='../', home='../', tipo='bye', other='../es/adios/', other_lang='es', other_name='Español', privacy='../privacy.html',
   title='Ferry has been removed', h1='Ferry has been removed',
   lead='Thanks for trying it. Could you tell us why you are leaving? It takes ten seconds.',
-  steps=[], open_claude='', q_h='', q_p='',
-  legend='Why did you remove Ferry?',
-  opts=[('done', 'I already moved what I needed'), ('broken', 'It did not work or showed an error'),
-        ('missing', 'It does not move what I need'), ('hard', 'It was hard to use'),
-        ('trust', 'I was not comfortable giving it access'), ('trying', 'I was just trying it'), ('other', 'Something else')],
+  preguntas=[
+   ('motivo', 'radio', 'Why did you remove Ferry?', '', [
+     ('done', 'I already moved what I needed'), ('broken', 'It did not work or showed an error'),
+     ('missing', 'It does not move what I need'), ('hard', 'It was hard to use'),
+     ('trust', 'I was not comfortable giving it access'), ('trying', 'I was just trying it'), ('other', 'Something else')]),
+  ],
   text_label='What should Ferry do differently?', optional='optional',
   text_ph='What happened, or what was missing.',
   email_label='Your email, if you would like a reply',
-  btn='Send', note='Only what you write here is sent, and only when you press Send.',
+  btn='Send', note='Only what you fill in here is sent, and only when you press Send.',
   ok='Thanks for telling us.', need='Pick an option or write a few words first.',
   err='That did not work. Try again or write to support@getferry.net.', mail='Check the email address, or leave it empty.',
+  steps_h='', steps=[], open_claude='',
   again='If you need Ferry again, it is still free.', again_link='Add Ferry to Chrome',
   foot='Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.', foot_priv='Privacy policy',
  ),
@@ -612,17 +625,19 @@ F = {
   lang='es', base='../../', home='../', tipo='bye', other='../../bye/', other_lang='en', other_name='English', privacy='../../privacy.html#es',
   title='Ferry se ha desinstalado', h1='Ferry se ha desinstalado',
   lead='Gracias por probarlo. ¿Nos dices por qué te vas? Son diez segundos.',
-  steps=[], open_claude='', q_h='', q_p='',
-  legend='¿Por qué has quitado Ferry?',
-  opts=[('done', 'Ya he movido lo que necesitaba'), ('broken', 'No funcionó o dio un error'),
-        ('missing', 'No mueve lo que necesito'), ('hard', 'Era difícil de usar'),
-        ('trust', 'No me daba confianza darle acceso'), ('trying', 'Solo lo estaba probando'), ('other', 'Otra cosa')],
+  preguntas=[
+   ('motivo', 'radio', '¿Por qué has quitado Ferry?', '', [
+     ('done', 'Ya he movido lo que necesitaba'), ('broken', 'No funcionó o dio un error'),
+     ('missing', 'No mueve lo que necesito'), ('hard', 'Era difícil de usar'),
+     ('trust', 'No me daba confianza darle acceso'), ('trying', 'Solo lo estaba probando'), ('other', 'Otra cosa')]),
+  ],
   text_label='¿Qué debería hacer Ferry de otra forma?', optional='opcional',
   text_ph='Qué pasó o qué echaste en falta.',
   email_label='Tu correo, si quieres que te respondamos',
-  btn='Enviar', note='Solo se envía lo que escribas aquí, y solo cuando pulses Enviar.',
+  btn='Enviar', note='Solo se envía lo que rellenes aquí, y solo cuando pulses Enviar.',
   ok='Gracias por contárnoslo.', need='Elige una opción o escribe algo primero.',
   err='No ha funcionado. Prueba otra vez o escribe a support@getferry.net.', mail='Revisa el correo o déjalo vacío.',
+  steps_h='', steps=[], open_claude='',
   again='Si vuelves a necesitar Ferry, sigue siendo gratis.', again_link='Añadir Ferry a Chrome',
   foot='Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.', foot_priv='Política de privacidad',
  ),
@@ -634,13 +649,20 @@ def feedback(f):
     if f['steps']:
         items = ''.join(f'<li><h3>{h}</h3><p>{p}</p></li>' for h, p in f['steps'])
         pasos = f'''
+  <section class="fb-tarjeta" aria-labelledby="fb-pasos">
+    <h2 id="fb-pasos">{f['steps_h']}</h2>
     <ol class="fb-pasos">{items}</ol>
     <a class="boton boton-oscuro" href="https://claude.ai">{f['open_claude']}</a>
-  </section>
-  <section class="fb-tarjeta" aria-labelledby="fb-q">
-    <h2 id="fb-q">{f['q_h']}</h2>
-    <p class="fb-sub">{f['q_p']}</p>'''
-    opts = ''.join(f'<label class="fb-op"><input type="radio" name="motivo" value="{v}"><span>{t}</span></label>' for v, t in f['opts'])
+  </section>'''
+    grupos = ''
+    for nombre, tipo, pregunta, pista, opciones in f['preguntas']:
+        ops = ''.join(f'<label class="fb-op"><input type="{tipo}" name="{nombre}" value="{v}"><span>{t}</span></label>' for v, t in opciones)
+        extra = f' <span class="fb-opc">({pista})</span>' if pista else ''
+        grupos += f'''
+      <fieldset>
+        <legend>{pregunta}{extra}</legend>
+        <div class="fb-ops">{ops}</div>
+      </fieldset>'''
     otra = ''
     if f['again']:
         otra = f'<p class="fb-otra" id="fb-otra" hidden>{f["again"]} <a href="{STORE}">{f["again_link"]}</a></p>'
@@ -665,12 +687,8 @@ def feedback(f):
   <main>
   <section class="fb-tarjeta" aria-labelledby="fb-h">
     <h1 id="fb-h">{f['h1']}</h1>
-    <p class="fb-entrada">{f['lead']}</p>{pasos}
-    <form class="fb-form" id="fb" novalidate data-tipo="{f['tipo']}">
-      <fieldset>
-        <legend>{f['legend']}</legend>
-        <div class="fb-ops">{opts}</div>
-      </fieldset>
+    <p class="fb-entrada">{f['lead']}</p>
+    <form class="fb-form" id="fb" novalidate data-tipo="{f['tipo']}">{grupos}
       <label for="fb-texto">{f['text_label']} <span class="fb-opc">({f['optional']})</span></label>
       <textarea id="fb-texto" name="texto" rows="3" maxlength="2000" placeholder="{f['text_ph']}"></textarea>
       <label for="fb-email">{f['email_label']} <span class="fb-opc">({f['optional']})</span></label>
@@ -682,7 +700,7 @@ def feedback(f):
       </div>
     </form>
     {otra}
-  </section>
+  </section>{pasos}
   </main>
 </div>
 <footer class="pie">
@@ -699,17 +717,20 @@ def feedback(f):
   var boton = form.querySelector('button');
   var v = new URLSearchParams(location.search).get('v') || '';
   function aviso(texto, clase) {{ estado.textContent = texto; estado.className = 'pro-nota ' + clase; }}
+  function marcados(nombre) {{
+    return Array.prototype.map.call(form.querySelectorAll('input[name=' + nombre + ']:checked'), function (i) {{ return i.value; }});
+  }}
   form.addEventListener('submit', function (ev) {{
     ev.preventDefault();
-    var marcado = form.querySelector('input[name=motivo]:checked');
+    var datos = {{ tipo: form.dataset.tipo, motivo: marcados('motivo')[0] || '', que: marcados('que'), donde: marcados('donde') }};
     var texto = form.texto.value.trim();
     var email = form.email.value.trim();
-    if (!marcado && !texto) {{ aviso(estado.dataset.need, 'mal'); return; }}
+    if (!datos.motivo && !datos.que.length && !datos.donde.length && !texto) {{ aviso(estado.dataset.need, 'mal'); return; }}
     if (email && !form.email.checkValidity()) {{ aviso(estado.dataset.mail, 'mal'); form.email.focus(); return; }}
+    datos.texto = texto; datos.email = email; datos.version = v;
+    datos.lang = document.documentElement.lang; datos.website = form.website.value;
     boton.disabled = true;
-    fetch('/api/feedback', {{ method: 'POST', headers: {{ 'content-type': 'application/json' }},
-      body: JSON.stringify({{ tipo: form.dataset.tipo, motivo: marcado ? marcado.value : '', texto: texto, email: email,
-        version: v, lang: document.documentElement.lang, website: form.website.value }}) }})
+    fetch('/api/feedback', {{ method: 'POST', headers: {{ 'content-type': 'application/json' }}, body: JSON.stringify(datos) }})
       .then(function (r) {{ return r.json().then(function (d) {{ if (!r.ok || !d.ok) throw new Error('x'); }}); }})
       .then(function () {{
         form.hidden = true;

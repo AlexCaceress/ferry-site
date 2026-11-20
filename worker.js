@@ -58,10 +58,17 @@ async function waitlist(request, env) {
 }
 
 // Answers from the pages the extension opens: /welcome (after install) and /bye (after uninstall).
-const MOTIVOS = {
-  welcome: ['personal-work', 'work-personal', 'personal-personal', 'school', 'other-ai', 'other'],
-  bye: ['done', 'broken', 'missing', 'hard', 'trust', 'trying', 'other'],
+// Allowed values must match the options in _build.py.
+const OPCIONES = {
+  que: ['projects', 'bulk-chats', 'memory', 'whole-account'],
+  donde: ['claude-account', 'claude-chatgpt', 'claude-gemini', 'other-ai-claude', 'other'],
+  motivo: ['done', 'broken', 'missing', 'hard', 'trust', 'trying', 'other'],
 };
+
+function elegidas(valor, permitidas) {
+  const lista = Array.isArray(valor) ? valor : [];
+  return permitidas.filter((p) => lista.includes(p));
+}
 
 async function feedback(request, env) {
   if (request.method !== 'POST') return json({ ok: false }, 405);
@@ -70,20 +77,26 @@ async function feedback(request, env) {
   if (data.website) return json({ ok: true });
   const tipo = data.tipo === 'bye' ? 'bye' : data.tipo === 'welcome' ? 'welcome' : null;
   if (!tipo) return json({ ok: false, error: 'bad-request' }, 400);
-  const motivo = MOTIVOS[tipo].includes(data.motivo) ? data.motivo : '';
+  const motivo = tipo === 'bye' && OPCIONES.motivo.includes(data.motivo) ? data.motivo : '';
+  const que = tipo === 'welcome' ? elegidas(data.que, OPCIONES.que) : [];
+  const donde = tipo === 'welcome' ? elegidas(data.donde, OPCIONES.donde) : [];
   const texto = String(data.texto || '').trim().slice(0, 2000);
   const email = String(data.email || '').trim();
   const version = /^\d{1,4}(\.\d{1,4}){0,3}$/.test(String(data.version || '')) ? String(data.version) : 'unknown';
   const lang = data.lang === 'es' ? 'es' : 'en';
-  if (!motivo && !texto) return json({ ok: false, error: 'empty' }, 400);
+  if (!motivo && !que.length && !donde.length && !texto) return json({ ok: false, error: 'empty' }, 400);
   if (email && (email.length > 254 || !EMAIL_OK.test(email))) return json({ ok: false, error: 'email' }, 400);
 
+  const resumen = tipo === 'bye' ? (motivo || 'comment') : `${que.join(', ') || '-'} / ${donde.join(', ') || '-'}`;
+  const respuestas = tipo === 'bye'
+    ? [`Why they left: ${motivo || '(none)'}`]
+    : [`What to move: ${que.join(', ') || '(none)'}`, `Where to: ${donde.join(', ') || '(none)'}`];
   const now = new Date();
   const raw = [
     `From: Ferry feedback <${FROM}>`,
     `To: ${TO}`,
     ...(email ? [`Reply-To: ${email}`] : []),
-    `Subject: Ferry ${tipo}: ${motivo || 'comment'}`,
+    `Subject: Ferry ${tipo}: ${resumen}`,
     `Date: ${now.toUTCString()}`,
     `Message-ID: <${crypto.randomUUID()}@getferry.net>`,
     'MIME-Version: 1.0',
@@ -91,7 +104,7 @@ async function feedback(request, env) {
     '',
     tipo === 'welcome' ? 'Answer from the welcome page (after installing Ferry).' : 'Answer from the goodbye page (after removing Ferry).',
     '',
-    `Option: ${motivo || '(none)'}`,
+    ...respuestas,
     `Comment: ${texto ? texto.replace(/\r?\n/g, '\r\n  ') : '(none)'}`,
     `Email: ${email || '(none)'}`,
     `Ferry version: ${version}`,
