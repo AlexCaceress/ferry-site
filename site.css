@@ -272,3 +272,46 @@ h2 { font-size: clamp(32px, 4vw, 46px); line-height: 1.08; margin: 0; }
 .guia-enlace a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; background: #fff; border-radius: 999px; padding: 12px 20px; box-shadow: 0 0 0 1px #E1E4E6; }
 .guia-enlace a::after { content: ''; width: 7px; height: 7px; border-right: 2px solid currentColor; border-top: 2px solid currentColor; transform: rotate(45deg); }
 .guia-enlace a:hover { box-shadow: 0 0 0 1px var(--tinta); }
+
+/* Welcome and bye pages (opened by the extension) */
+.fb { max-width: 760px; }
+.fb main { display: grid; gap: 20px; padding: 8px 0 24px; }
+.fb-tarjeta { background: #fff; border-radius: 24px; padding: 48px; box-shadow: 0 0 0 1px #ECEEF0; }
+.fb-tarjeta h1 { font-size: clamp(32px, 4.4vw, 46px); line-height: 1.06; letter-spacing: -0.035em; margin: 0; }
+.fb-tarjeta h2 { font-size: 28px; letter-spacing: -0.02em; margin: 0; }
+.fb-entrada { font-size: 19px; color: var(--suave); margin: 14px 0 0; max-width: 54ch; }
+.fb-sub { color: var(--suave); margin: 10px 0 0; }
+.fb-pasos { list-style: none; counter-reset: paso; padding: 0; margin: 32px 0; display: grid; gap: 22px; }
+.fb-pasos li { counter-increment: paso; display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 16px; }
+.fb-pasos li::before { content: counter(paso); grid-row: span 2; width: 36px; height: 36px; border-radius: 50%; background: var(--amarillo);
+  display: grid; place-items: center; font-weight: 700; font-size: 15px; }
+.fb-pasos h3 { margin: 5px 0 2px; font-size: 17px; letter-spacing: -0.01em; }
+.fb-pasos p { margin: 0; color: var(--texto); }
+.fb-form { margin-top: 28px; }
+.fb-form fieldset { border: 0; padding: 0; margin: 0 0 24px; min-width: 0; }
+.fb-form legend, .fb-form > label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 10px; padding: 0; }
+.fb-opc { font-weight: 400; color: var(--suave); }
+.fb-ops { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.fb-op { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border: 1px solid #D5D9DC; border-radius: 12px; cursor: pointer;
+  font-size: 15px; line-height: 1.35; transition: border-color .15s ease, background .15s ease; }
+.fb-op:hover { border-color: #9AA3A8; }
+.fb-op input { accent-color: var(--tinta); width: 18px; height: 18px; margin: 0; flex: none; }
+.fb-op:has(input:checked) { border-color: var(--tinta); background: #FFFBEA; box-shadow: inset 0 0 0 1px var(--tinta); }
+.fb-op:has(input:focus-visible) { outline: 3px solid var(--amarillo); outline-offset: 2px; }
+.fb-op input:focus-visible { outline: none; }
+.fb-form textarea, .fb-form input[type=email] { display: block; width: 100%; font: inherit; font-size: 16px; padding: 13px 14px; margin: 0 0 22px;
+  border: 1px solid #D5D9DC; border-radius: 12px; background: #fff; color: var(--tinta); resize: vertical; }
+.fb-form textarea:focus, .fb-form input[type=email]:focus { outline: 3px solid var(--amarillo); outline-offset: 1px; border-color: var(--tinta); }
+.fb-envio { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.fb-envio .pro-nota { margin: 0; flex: 1 1 240px; }
+.fb-envio .boton { border: 0; cursor: pointer; font-family: inherit; }
+.fb-envio .boton:disabled { opacity: .6; cursor: wait; }
+.fb-gracias { margin: 28px 0 0; font-size: 19px; font-weight: 600; color: var(--verde); }
+.fb-gracias:focus { outline: none; }
+.fb-otra { margin: 14px 0 0; color: var(--suave); }
+.fb-otra a { font-weight: 600; color: var(--tinta); }
+@media (max-width: 640px) {
+  .fb-tarjeta { padding: 30px 20px; border-radius: 20px; }
+  .fb-ops { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .fb-op { transition: none; } }

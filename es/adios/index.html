@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ferry se ha desinstalado</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F3F4F5">
+<link rel="icon" href="../../icon.png">
+<link rel="preload" href="../../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+<div class="envoltura fb">
+  <header class="guia-cabecera">
+    <a class="marca" href="../"><span><svg viewBox="0 0 24 24" fill="none" stroke="#F6C90E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h16l-2.2 4.2a2 2 0 0 1-1.8 1.1H8a2 2 0 0 1-1.8-1.1z"/><path d="M7 14V9.5h8.5L18 14"/><path d="M10 9.5V6.5h3"/></svg></span>Ferry</a>
+    <a class="idioma" href="../../bye/" lang="en" hreflang="en">English</a>
+  </header>
+  <main>
+  <section class="fb-tarjeta" aria-labelledby="fb-h">
+    <h1 id="fb-h">Ferry se ha desinstalado</h1>
+    <p class="fb-entrada">Gracias por probarlo. ¿Nos dices por qué te vas? Son diez segundos.</p>
+    <form class="fb-form" id="fb" novalidate data-tipo="bye">
+      <fieldset>
+        <legend>¿Por qué has quitado Ferry?</legend>
+        <div class="fb-ops"><label class="fb-op"><input type="radio" name="motivo" value="done"><span>Ya he movido lo que necesitaba</span></label><label class="fb-op"><input type="radio" name="motivo" value="broken"><span>No funcionó o dio un error</span></label><label class="fb-op"><input type="radio" name="motivo" value="missing"><span>No mueve lo que necesito</span></label><label class="fb-op"><input type="radio" name="motivo" value="hard"><span>Era difícil de usar</span></label><label class="fb-op"><input type="radio" name="motivo" value="trust"><span>No me daba confianza darle acceso</span></label><label class="fb-op"><input type="radio" name="motivo" value="trying"><span>Solo lo estaba probando</span></label><label class="fb-op"><input type="radio" name="motivo" value="other"><span>Otra cosa</span></label></div>
+      </fieldset>
+      <label for="fb-texto">¿Qué debería hacer Ferry de otra forma? <span class="fb-opc">(opcional)</span></label>
+      <textarea id="fb-texto" name="texto" rows="3" maxlength="2000" placeholder="Qué pasó o qué echaste en falta."></textarea>
+      <label for="fb-email">Tu correo, si quieres que te respondamos <span class="fb-opc">(opcional)</span></label>
+      <input id="fb-email" name="email" type="email" autocomplete="email" maxlength="254">
+      <input class="trampa" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="fb-envio">
+        <button class="boton boton-oscuro" type="submit">Enviar</button>
+        <p class="pro-nota" id="fb-estado" role="status" data-ok="Gracias por contárnoslo." data-err="No ha funcionado. Prueba otra vez o escribe a support@getferry.net." data-need="Elige una opción o escribe algo primero." data-mail="Revisa el correo o déjalo vacío.">Solo se envía lo que escribas aquí, y solo cuando pulses Enviar.</p>
+      </div>
+    </form>
+    <p class="fb-otra" id="fb-otra" hidden>Si vuelves a necesitar Ferry, sigue siendo gratis. <a href="https://chromewebstore.google.com/detail/hflghkalnkgcmkpppfkpddelokimodag">Añadir Ferry a Chrome</a></p>
+  </section>
+  </main>
+</div>
+<footer class="pie">
+  <div class="envoltura fb">
+    <p class="aviso">Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.</p>
+    <a href="../../privacy.html#es">Política de privacidad</a>
+    <a href="mailto:support@getferry.net">support@getferry.net</a>
+  </div>
+</footer>
+<script>
+(function () {
+  var form = document.getElementById('fb');
+  var estado = document.getElementById('fb-estado');
+  var boton = form.querySelector('button');
+  var v = new URLSearchParams(location.search).get('v') || '';
+  function aviso(texto, clase) { estado.textContent = texto; estado.className = 'pro-nota ' + clase; }
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var marcado = form.querySelector('input[name=motivo]:checked');
+    var texto = form.texto.value.trim();
+    var email = form.email.value.trim();
+    if (!marcado && !texto) { aviso(estado.dataset.need, 'mal'); return; }
+    if (email && !form.email.checkValidity()) { aviso(estado.dataset.mail, 'mal'); form.email.focus(); return; }
+    boton.disabled = true;
+    fetch('/api/feedback', { method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ tipo: form.dataset.tipo, motivo: marcado ? marcado.value : '', texto: texto, email: email,
+        version: v, lang: document.documentElement.lang, website: form.website.value }) })
+      .then(function (r) { return r.json().then(function (d) { if (!r.ok || !d.ok) throw new Error('x'); }); })
+      .then(function () {
+        form.hidden = true;
+        var gracias = document.createElement('p');
+        gracias.className = 'fb-gracias'; gracias.setAttribute('role', 'status'); gracias.tabIndex = -1;
+        gracias.textContent = estado.dataset.ok;
+        form.parentNode.insertBefore(gracias, form);
+        gracias.focus();
+        var otra = document.getElementById('fb-otra'); if (otra) otra.hidden = false;
+      })
+      .catch(function () { aviso(estado.dataset.err, 'mal'); boton.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>

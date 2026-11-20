@@ -538,6 +538,196 @@ def guide(g):
 </html>
 '''
 
+# ---------- Pages the extension opens: welcome (after install) and bye (after uninstall) ----------
+# Not in the sitemap and marked noindex. The form posts to /api/feedback (worker.js).
+
+F = {
+ 'welcome_en': dict(
+  lang='en', base='../', home='../', tipo='welcome', other='../es/bienvenida/', other_lang='es', other_name='Español', privacy='../privacy.html',
+  title='Ferry is installed', h1='Ferry is ready',
+  lead='Here is how to move your first project. It takes a couple of minutes.',
+  steps=[
+   ('Pin Ferry', 'Click the puzzle icon at the top right of Chrome and pin Ferry, so it is always one click away.'),
+   ('Take it from the old account', 'Open claude.ai with that account and click the Ferry icon. Choose <b>Take from this account</b> and save the project or chat.'),
+   ('Switch accounts', 'Log in to claude.ai with the account you want to move to.'),
+   ('Bring it in', 'Open Ferry again, choose <b>Bring to this account</b>, pick the file and tick what to include.'),
+  ],
+  open_claude='Open claude.ai',
+  q_h='One question before you start', q_p='Ferry is new, and your answer decides what it does next.',
+  legend='What kind of move do you need?',
+  opts=[('personal-work', 'From a personal account to a work one'), ('work-personal', 'From a work account to a personal one'),
+        ('personal-personal', 'Between two personal accounts'), ('school', 'Out of a school or university account'),
+        ('other-ai', 'From another AI (ChatGPT, Gemini…) to Claude'), ('other', 'Something else')],
+  text_label='What do you want to move, and why?', optional='optional',
+  text_ph='For example: 12 projects from my old job account, because I am leaving the company.',
+  email_label='Your email, if you would like a reply',
+  btn='Send', note='Only what you write here is sent, and only when you press Send.',
+  ok='Thanks! It really helps decide what Ferry does next.', need='Pick an option or write a few words first.',
+  err='That did not work. Try again or write to support@getferry.net.', mail='Check the email address, or leave it empty.', again='', again_link='',
+  foot='Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.', foot_priv='Privacy policy',
+ ),
+ 'welcome_es': dict(
+  lang='es', base='../../', home='../', tipo='welcome', other='../../welcome/', other_lang='en', other_name='English', privacy='../../privacy.html#es',
+  title='Ferry está instalado', h1='Ferry ya está listo',
+  lead='Así mueves tu primer proyecto. Son un par de minutos.',
+  steps=[
+   ('Fija Ferry', 'Pulsa el icono del puzle, arriba a la derecha de Chrome, y fija Ferry para tenerlo siempre a un clic.'),
+   ('Llévatelo de la cuenta antigua', 'Abre claude.ai con esa cuenta y pulsa el icono de Ferry. Elige <b>Llevar desde esta cuenta</b> y guarda el proyecto o el chat.'),
+   ('Cambia de cuenta', 'Entra en claude.ai con la cuenta a la que lo quieres mover.'),
+   ('Tráelo', 'Abre Ferry otra vez, elige <b>Traer a esta cuenta</b>, escoge el archivo y marca qué incluir.'),
+  ],
+  open_claude='Abrir claude.ai',
+  q_h='Una pregunta antes de empezar', q_p='Ferry es nuevo, y tu respuesta decide qué hace a continuación.',
+  legend='¿Qué cambio necesitas?',
+  opts=[('personal-work', 'De una cuenta personal a una del trabajo'), ('work-personal', 'De una cuenta del trabajo a una personal'),
+        ('personal-personal', 'Entre dos cuentas personales'), ('school', 'Sacarlo de una cuenta de la universidad o el colegio'),
+        ('other-ai', 'De otra IA (ChatGPT, Gemini…) a Claude'), ('other', 'Otra cosa')],
+  text_label='¿Qué quieres mover y por qué?', optional='opcional',
+  text_ph='Por ejemplo: 12 proyectos de la cuenta de mi antiguo trabajo, porque me voy de la empresa.',
+  email_label='Tu correo, si quieres que te respondamos',
+  btn='Enviar', note='Solo se envía lo que escribas aquí, y solo cuando pulses Enviar.',
+  ok='¡Gracias! Ayuda mucho a decidir qué hace Ferry después.', need='Elige una opción o escribe algo primero.',
+  err='No ha funcionado. Prueba otra vez o escribe a support@getferry.net.', mail='Revisa el correo o déjalo vacío.', again='', again_link='',
+  foot='Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.', foot_priv='Política de privacidad',
+ ),
+ 'bye_en': dict(
+  lang='en', base='../', home='../', tipo='bye', other='../es/adios/', other_lang='es', other_name='Español', privacy='../privacy.html',
+  title='Ferry has been removed', h1='Ferry has been removed',
+  lead='Thanks for trying it. Could you tell us why you are leaving? It takes ten seconds.',
+  steps=[], open_claude='', q_h='', q_p='',
+  legend='Why did you remove Ferry?',
+  opts=[('done', 'I already moved what I needed'), ('broken', 'It did not work or showed an error'),
+        ('missing', 'It does not move what I need'), ('hard', 'It was hard to use'),
+        ('trust', 'I was not comfortable giving it access'), ('trying', 'I was just trying it'), ('other', 'Something else')],
+  text_label='What should Ferry do differently?', optional='optional',
+  text_ph='What happened, or what was missing.',
+  email_label='Your email, if you would like a reply',
+  btn='Send', note='Only what you write here is sent, and only when you press Send.',
+  ok='Thanks for telling us.', need='Pick an option or write a few words first.',
+  err='That did not work. Try again or write to support@getferry.net.', mail='Check the email address, or leave it empty.',
+  again='If you need Ferry again, it is still free.', again_link='Add Ferry to Chrome',
+  foot='Ferry is an independent tool, not affiliated with Anthropic. Claude is a trademark of Anthropic.', foot_priv='Privacy policy',
+ ),
+ 'bye_es': dict(
+  lang='es', base='../../', home='../', tipo='bye', other='../../bye/', other_lang='en', other_name='English', privacy='../../privacy.html#es',
+  title='Ferry se ha desinstalado', h1='Ferry se ha desinstalado',
+  lead='Gracias por probarlo. ¿Nos dices por qué te vas? Son diez segundos.',
+  steps=[], open_claude='', q_h='', q_p='',
+  legend='¿Por qué has quitado Ferry?',
+  opts=[('done', 'Ya he movido lo que necesitaba'), ('broken', 'No funcionó o dio un error'),
+        ('missing', 'No mueve lo que necesito'), ('hard', 'Era difícil de usar'),
+        ('trust', 'No me daba confianza darle acceso'), ('trying', 'Solo lo estaba probando'), ('other', 'Otra cosa')],
+  text_label='¿Qué debería hacer Ferry de otra forma?', optional='opcional',
+  text_ph='Qué pasó o qué echaste en falta.',
+  email_label='Tu correo, si quieres que te respondamos',
+  btn='Enviar', note='Solo se envía lo que escribas aquí, y solo cuando pulses Enviar.',
+  ok='Gracias por contárnoslo.', need='Elige una opción o escribe algo primero.',
+  err='No ha funcionado. Prueba otra vez o escribe a support@getferry.net.', mail='Revisa el correo o déjalo vacío.',
+  again='Si vuelves a necesitar Ferry, sigue siendo gratis.', again_link='Añadir Ferry a Chrome',
+  foot='Ferry es una herramienta independiente, no afiliada a Anthropic. Claude es una marca de Anthropic.', foot_priv='Política de privacidad',
+ ),
+}
+
+def feedback(f):
+    b = f['base']
+    pasos = ''
+    if f['steps']:
+        items = ''.join(f'<li><h3>{h}</h3><p>{p}</p></li>' for h, p in f['steps'])
+        pasos = f'''
+    <ol class="fb-pasos">{items}</ol>
+    <a class="boton boton-oscuro" href="https://claude.ai">{f['open_claude']}</a>
+  </section>
+  <section class="fb-tarjeta" aria-labelledby="fb-q">
+    <h2 id="fb-q">{f['q_h']}</h2>
+    <p class="fb-sub">{f['q_p']}</p>'''
+    opts = ''.join(f'<label class="fb-op"><input type="radio" name="motivo" value="{v}"><span>{t}</span></label>' for v, t in f['opts'])
+    otra = ''
+    if f['again']:
+        otra = f'<p class="fb-otra" id="fb-otra" hidden>{f["again"]} <a href="{STORE}">{f["again_link"]}</a></p>'
+    return f'''<!doctype html>
+<html lang="{f['lang']}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{f['title']}</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F3F4F5">
+<link rel="icon" href="{b}icon.png">
+<link rel="preload" href="{b}fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{b}site.css">
+</head>
+<body>
+<div class="envoltura fb">
+  <header class="guia-cabecera">
+    <a class="marca" href="{f['home']}"><span>{svg(BARCO, '#F6C90E', '2')}</span>Ferry</a>
+    <a class="idioma" href="{f['other']}" lang="{f['other_lang']}" hreflang="{f['other_lang']}">{f['other_name']}</a>
+  </header>
+  <main>
+  <section class="fb-tarjeta" aria-labelledby="fb-h">
+    <h1 id="fb-h">{f['h1']}</h1>
+    <p class="fb-entrada">{f['lead']}</p>{pasos}
+    <form class="fb-form" id="fb" novalidate data-tipo="{f['tipo']}">
+      <fieldset>
+        <legend>{f['legend']}</legend>
+        <div class="fb-ops">{opts}</div>
+      </fieldset>
+      <label for="fb-texto">{f['text_label']} <span class="fb-opc">({f['optional']})</span></label>
+      <textarea id="fb-texto" name="texto" rows="3" maxlength="2000" placeholder="{f['text_ph']}"></textarea>
+      <label for="fb-email">{f['email_label']} <span class="fb-opc">({f['optional']})</span></label>
+      <input id="fb-email" name="email" type="email" autocomplete="email" maxlength="254">
+      <input class="trampa" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="fb-envio">
+        <button class="boton boton-oscuro" type="submit">{f['btn']}</button>
+        <p class="pro-nota" id="fb-estado" role="status" data-ok="{f['ok']}" data-err="{f['err']}" data-need="{f['need']}" data-mail="{f['mail']}">{f['note']}</p>
+      </div>
+    </form>
+    {otra}
+  </section>
+  </main>
+</div>
+<footer class="pie">
+  <div class="envoltura fb">
+    <p class="aviso">{f['foot']}</p>
+    <a href="{f['privacy']}">{f['foot_priv']}</a>
+    <a href="mailto:{EMAIL}">{EMAIL}</a>
+  </div>
+</footer>
+<script>
+(function () {{
+  var form = document.getElementById('fb');
+  var estado = document.getElementById('fb-estado');
+  var boton = form.querySelector('button');
+  var v = new URLSearchParams(location.search).get('v') || '';
+  function aviso(texto, clase) {{ estado.textContent = texto; estado.className = 'pro-nota ' + clase; }}
+  form.addEventListener('submit', function (ev) {{
+    ev.preventDefault();
+    var marcado = form.querySelector('input[name=motivo]:checked');
+    var texto = form.texto.value.trim();
+    var email = form.email.value.trim();
+    if (!marcado && !texto) {{ aviso(estado.dataset.need, 'mal'); return; }}
+    if (email && !form.email.checkValidity()) {{ aviso(estado.dataset.mail, 'mal'); form.email.focus(); return; }}
+    boton.disabled = true;
+    fetch('/api/feedback', {{ method: 'POST', headers: {{ 'content-type': 'application/json' }},
+      body: JSON.stringify({{ tipo: form.dataset.tipo, motivo: marcado ? marcado.value : '', texto: texto, email: email,
+        version: v, lang: document.documentElement.lang, website: form.website.value }}) }})
+      .then(function (r) {{ return r.json().then(function (d) {{ if (!r.ok || !d.ok) throw new Error('x'); }}); }})
+      .then(function () {{
+        form.hidden = true;
+        var gracias = document.createElement('p');
+        gracias.className = 'fb-gracias'; gracias.setAttribute('role', 'status'); gracias.tabIndex = -1;
+        gracias.textContent = estado.dataset.ok;
+        form.parentNode.insertBefore(gracias, form);
+        gracias.focus();
+        var otra = document.getElementById('fb-otra'); if (otra) otra.hidden = false;
+      }})
+      .catch(function () {{ aviso(estado.dataset.err, 'mal'); boton.disabled = false; }});
+  }});
+}})();
+</script>
+</body>
+</html>
+'''
+
 here = os.path.dirname(os.path.abspath(__file__))
 os.makedirs(os.path.join(here, 'es'), exist_ok=True)
 open(os.path.join(here, 'index.html'), 'w', encoding='utf-8').write(page(T['en']))
@@ -546,4 +736,8 @@ for ruta, g in [(('guides', 'move-claude-projects-to-another-account'), G['en'])
     d = os.path.join(here, *ruta)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(guide(g))
+for ruta, f in [(('welcome',), F['welcome_en']), (('es', 'bienvenida'), F['welcome_es']), (('bye',), F['bye_en']), (('es', 'adios'), F['bye_es'])]:
+    d = os.path.join(here, *ruta)
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(feedback(f))
 print('ok')
